@@ -14,6 +14,7 @@
 #header .ct-header-trigger{--theme-icon-color:var(--dk-ink)!important;--theme-link-initial-color:var(--dk-ink)!important}
 #header .ct-header-text .entry-content{display:flex;align-items:center;gap:8px}
 #header .ct-header-text .entry-content>p{display:contents}
+#header .ct-header-text .entry-content>*{margin:0!important}
 .dk-theme-btn{width:44px;height:44px;display:grid;place-items:center;padding:0;border-radius:999px;border:1px solid var(--dk-line);background:transparent;color:var(--dk-ink);cursor:pointer;transition:border-color .2s}
 .dk-theme-btn:hover{border-color:var(--dk-ink)}
 .dk-theme-btn svg{width:20px;height:20px}
