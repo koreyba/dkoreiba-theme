@@ -50,7 +50,12 @@ blocksy-child/
 
 Rules for new work:
 - Every DK section is a full-width group with class `dk-page` (patterns already are).
-  All DK CSS is scoped to `.dk-page`, so blog posts and other non-DK content are unaffected.
+  Component CSS is scoped to `.dk-page`; Blocksy templates (posts, archive, search,
+  404, pages without DK sections) are styled in templates.css.
+- Dark mode is site-wide (tokens.css, `html[data-dk-theme]` / OS preference). Any
+  new colour must be a `--dk-*` token; Blocksy hex colours are mapped in tokens.css.
+- Contrast check: light accent is #BA4917 (4.6:1 on paper) — keep small accent text
+  ≥ 4.5:1 in both themes.
 - Layout = primitives from `layout.css`. Don't add a page-specific grid class.
 - Look of a core block = a registered block style (`is-style-dk-*`, see
   `functions.php`), not a free-form class. Component-internal parts (dk-stat-num,
