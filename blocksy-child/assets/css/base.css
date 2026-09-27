@@ -23,6 +23,7 @@ html .dk-page :is(h1,h2,h3){font-family:var(--dk-font-display);font-weight:500;l
 
 .dk-wrap{box-sizing:border-box;width:100%;max-width:var(--dk-max);margin-inline:auto!important;padding-inline:var(--dk-gutter)}
 .dk-wrap.dk-narrow{max-width:820px}
+.dk-wrap.dk-narrow-s{max-width:520px}
 .dk-section{padding-block:var(--dk-sp-section)}
 .dk-section.dk-flush-top{padding-top:0}
 .dk-page .dk-gap-top{margin-top:clamp(64px,8vw,112px)!important}

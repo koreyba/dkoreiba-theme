@@ -1,7 +1,7 @@
 /* DK Design System — layout primitives (page-agnostic).
  *
  * Compose sections from these instead of adding a grid class per page:
- *   .dk-wrap                     centred container (max width + gutters) — base.css
+ *   .dk-wrap (+ .dk-narrow 820 | .dk-narrow-s 520)   centred container — base.css
  *   .dk-section                  vertical section padding — base.css
  *   .dk-stack / .dk-stack-l      vertical flow with gap
  *   .dk-split  (1:1) + .dk-split-4-8 | -5-7 | -6-5 | -300   two columns, collapse ≤860px
