@@ -44,7 +44,7 @@
 <!-- wp:group {"className":"dk-meta","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-meta"><!-- wp:group {"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"dk-meta-k"} -->
-<p class="dk-meta-k">Длительность:</p>
+<p class="dk-meta-k">Длительность</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"dk-meta-v"} -->
@@ -54,7 +54,7 @@
 
 <!-- wp:group {"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"dk-meta-k"} -->
-<p class="dk-meta-k">Эффект после:</p>
+<p class="dk-meta-k">Эффект после</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"dk-meta-v"} -->
@@ -100,7 +100,7 @@
 <!-- wp:group {"className":"dk-meta","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-meta"><!-- wp:group {"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"dk-meta-k"} -->
-<p class="dk-meta-k">Длительность:</p>
+<p class="dk-meta-k">Длительность</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"dk-meta-v"} -->
@@ -110,7 +110,7 @@
 
 <!-- wp:group {"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"dk-meta-k"} -->
-<p class="dk-meta-k">Эффект после:</p>
+<p class="dk-meta-k">Эффект после</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"dk-meta-v"} -->

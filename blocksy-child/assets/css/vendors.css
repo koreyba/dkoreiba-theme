@@ -141,3 +141,12 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 #moove_gdpr_cookie_modal .moove-gdpr-modal-allow-all,#moove_gdpr_cookie_modal .moove-gdpr-modal-save-settings{background:var(--dk-accent)!important;border:1px solid var(--dk-accent)!important;color:var(--dk-accent-ink)!important}
 #moove_gdpr_cookie_modal .moove-gdpr-modal-reject-all{background:transparent!important;border:1px solid var(--dk-line)!important;color:var(--dk-ink)!important}
 #moove_gdpr_cookie_modal .moove-gdpr-modal-close,#moove_gdpr_cookie_modal .moove-gdpr-modal-close span{color:var(--dk-ink)!important;background:transparent!important;border-color:var(--dk-line)!important}
+
+/* ---------- 21. Mobile header: TranslatePress switcher aligned with the other 44px controls ----------
+   The switcher is inline-block with 10px vertical padding, so it sat on the baseline, above
+   the theme button, and stuck out of the shrunk sticky header. Collapsed = flag + chevron. */
+#header [data-device="mobile"] .trp-shortcode-switcher__wrapper{display:flex;align-items:center;height:44px}
+#header [data-device="mobile"] .trp-shortcode-switcher__wrapper .trp-language-switcher{padding:0!important;height:auto!important;vertical-align:middle}
+#header [data-device="mobile"] .trp-shortcode-switcher__wrapper .trp-shortcode-overlay{top:0!important}
+#header [data-device="mobile"] .trp-current-language-item__wrapper{height:42px!important;padding:0 10px 0 4px!important}
+#header [data-device="mobile"] .trp-shortcode-anchor .trp-current-language-item__wrapper .trp-language-item-name{display:none!important}

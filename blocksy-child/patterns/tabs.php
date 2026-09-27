@@ -13,14 +13,14 @@
 <div class="wp-block-group dk-section dk-flush-top"><!-- wp:group {"className":"dk-wrap","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-wrap"><!-- wp:group {"className":"dk-stack dk-head dk-reveal","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-stack dk-head dk-reveal"><!-- wp:heading {"className":"is-style-dk-display"} -->
-<h2 class="wp-block-heading is-style-dk-display">Я подойду, если ваш запрос:</h2>
+<h2 class="wp-block-heading is-style-dk-display">Я подойду, если ваш запрос</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"dk-tabs dk-reveal","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-tabs dk-reveal"><!-- wp:group {"className":"dk-tabpanel","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-tabpanel"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Внутренние трудности:</h3>
+<h3 class="wp-block-heading">Внутренние трудности</h3>
 <!-- /wp:heading -->
 
 <!-- wp:list -->
@@ -29,7 +29,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>Справиться с тревогой, стрессом навязчивыми мыслями</li>
+<li>Справиться с тревогой, стрессом, навязчивыми мыслями</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -60,7 +60,7 @@
 
 <!-- wp:group {"className":"dk-tabpanel","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-tabpanel"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Отношения:</h3>
+<h3 class="wp-block-heading">Отношения</h3>
 <!-- /wp:heading -->
 
 <!-- wp:list -->
@@ -100,7 +100,7 @@
 
 <!-- wp:group {"className":"dk-tabpanel","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-tabpanel"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Саморазвитие:</h3>
+<h3 class="wp-block-heading">Саморазвитие</h3>
 <!-- /wp:heading -->
 
 <!-- wp:list -->
@@ -132,7 +132,7 @@
 
 <!-- wp:group {"className":"dk-tabpanel","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-tabpanel"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Эмоциональный интеллект:</h3>
+<h3 class="wp-block-heading">Эмоциональный интеллект</h3>
 <!-- /wp:heading -->
 
 <!-- wp:list -->
@@ -172,7 +172,7 @@
 
 <!-- wp:group {"className":"dk-tabpanel","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-tabpanel"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Мотивация и реализация:</h3>
+<h3 class="wp-block-heading">Мотивация и реализация</h3>
 <!-- /wp:heading -->
 
 <!-- wp:list -->
@@ -204,7 +204,7 @@
 
 <!-- wp:group {"className":"dk-tabpanel","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-tabpanel"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Перемены в жизни:</h3>
+<h3 class="wp-block-heading">Перемены в жизни</h3>
 <!-- /wp:heading -->
 
 <!-- wp:list -->

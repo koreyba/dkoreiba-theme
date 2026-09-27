@@ -93,7 +93,7 @@
 <!-- wp:group {"className":"dk-stack-xl dk-reveal","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-stack-xl dk-reveal"><!-- wp:group {"className":"dk-stack-s","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-stack-s"><!-- wp:paragraph {"className":"is-style-dk-label"} -->
-<p class="is-style-dk-label">Психология:</p>
+<p class="is-style-dk-label">Психология</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list {"ordered":true,"className":"is-style-dk-timeline"} -->
@@ -129,7 +129,7 @@
 
 <!-- wp:group {"className":"dk-stack-s","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-stack-s"><!-- wp:paragraph {"className":"is-style-dk-label"} -->
-<p class="is-style-dk-label">За пределами психологии:</p>
+<p class="is-style-dk-label">За пределами психологии</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list {"ordered":true,"start":8,"className":"is-style-dk-timeline"} -->

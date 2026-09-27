@@ -13,7 +13,7 @@
 <div id="contacts" class="wp-block-group dk-section dk-flush-top"><!-- wp:group {"className":"dk-split dk-split-5-7 dk-wrap","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-split dk-split-5-7 dk-wrap"><!-- wp:group {"className":"dk-stack-l","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-stack-l"><!-- wp:paragraph {"className":"is-style-dk-label"} -->
-<p class="is-style-dk-label">Просто нажмите:</p>
+<p class="is-style-dk-label">Просто нажмите</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list {"className":"is-style-dk-links"} -->

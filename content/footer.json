@@ -1,13 +1,13 @@
 {
  "_note": "Footer widget content (Blocksy footer: middle row = sidebar-3 | sidebar-2 | sidebar-1). '{{svg:block-15}}' = SVG copied from the old GreenShift iconbox widget block-15.",
  "ct-footer-sidebar-3": [
-  "<!-- wp:paragraph {\"className\":\"is-style-dk-label\"} -->\n<p class=\"is-style-dk-label\">Контакты:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list {\"className\":\"is-style-dk-links\"} -->\n<ul class=\"wp-block-list is-style-dk-links\"><!-- wp:list-item -->\n<li><a href=\"https://t.me/koreyba\">Telegram</a></li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"viber://chat?number=%2B380638292022\">Viber</a></li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"https://api.whatsapp.com/send?phone=385924499398\">WhatsApp (+385924499398)</a></li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"https://ig.me/m/denyskoreiba\">Instagram Messenger</a></li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"https://m.me/koreybadenis\">Facebook Messanger</a></li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"mailto:koreybadenis@gmail.com\">koreybadenis@gmail.com</a></li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->"
+  "<!-- wp:paragraph {\"className\":\"is-style-dk-label\"} -->\n<p class=\"is-style-dk-label\">Контакты</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list {\"className\":\"is-style-dk-links\"} -->\n<ul class=\"wp-block-list is-style-dk-links\"><!-- wp:list-item -->\n<li><a href=\"https://t.me/koreyba\">Telegram</a></li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"viber://chat?number=%2B380638292022\">Viber</a></li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"https://api.whatsapp.com/send?phone=385924499398\">WhatsApp (+385924499398)</a></li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"https://ig.me/m/denyskoreiba\">Instagram Messenger</a></li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"https://m.me/koreybadenis\">Facebook Messenger</a></li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"mailto:koreybadenis@gmail.com\">koreybadenis@gmail.com</a></li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->"
  ],
  "ct-footer-sidebar-2": [
   "<!-- wp:quote {\"className\":\"dk-footer-quote\"} -->\n<blockquote class=\"wp-block-quote dk-footer-quote\"><!-- wp:paragraph -->\n<p>Вчера я был умным, хотел изменить мир. Сегодня я мудрый, и поэтому меняю себя.</p>\n<!-- /wp:paragraph --><cite>— Шри Чинмой</cite></blockquote>\n<!-- /wp:quote -->",
   "<!-- wp:html -->\n<div class=\"dk-footer-mark\" aria-hidden=\"true\">{{svg:block-15}}</div>\n<!-- /wp:html -->"
  ],
  "ct-footer-sidebar-1": [
-  "<!-- wp:paragraph {\"className\":\"is-style-dk-label\"} -->\n<p class=\"is-style-dk-label\">Я в соц. сетях:</p>\n<!-- /wp:paragraph -->"
+  "<!-- wp:paragraph {\"className\":\"is-style-dk-label\"} -->\n<p class=\"is-style-dk-label\">Я в соц. сетях</p>\n<!-- /wp:paragraph -->"
  ]
 }

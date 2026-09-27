@@ -41,17 +41,17 @@
 <!-- wp:group {"className":"dk-facts","layout":{"type":"default"}} -->
 <div class="wp-block-group dk-facts"><!-- wp:group {"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"is-style-dk-label"} -->
-<p class="is-style-dk-label">Подход:</p>
+<p class="is-style-dk-label">Подход</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"is-style-dk-link"} -->
-<p class="is-style-dk-link">Гештальт + КПТ + НЛП объединенные в интегральном подходе. <a href="/about/#integral-approach">Подробнее тут</a>.</p>
+<p class="is-style-dk-link">Гештальт + КПТ + НЛП, объединённые в интегральном подходе. <a href="/about/#integral-approach">Подробнее тут</a>.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"is-style-dk-label"} -->
-<p class="is-style-dk-label">Консультирую на:</p>
+<p class="is-style-dk-label">Консультирую на</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
