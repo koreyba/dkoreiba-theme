@@ -9,6 +9,7 @@
 .dk-page .dk-hero{padding-block:clamp(32px,6vw,88px) var(--dk-sp-section)}
 .dk-page .dk-hero h1{font-size:clamp(52px,8.4vw,108px);font-weight:400;letter-spacing:-.035em;line-height:.95}
 .dk-page .dk-hero h1 em{font-style:italic;font-weight:300;color:var(--dk-accent)}
+.dk-page .dk-intro h1{font-size:clamp(40px,5.4vw,72px);letter-spacing:-.025em;line-height:1.02}
 .dk-hero-media{position:relative;display:flex;flex-direction:column;align-items:flex-end}
 .dk-page figure.is-style-dk-blob{width:100%;aspect-ratio:1/1.08;overflow:hidden;border-radius:58% 42% 46% 54%/44% 50% 50% 56%;background:var(--dk-surface-2);animation:dk-breathe 16s ease-in-out infinite alternate}
 .dk-page figure.is-style-dk-blob img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.04)}
@@ -42,6 +43,11 @@
 .dk-page figure.is-style-dk-rounded{border-radius:var(--dk-r-l);overflow:hidden;background:var(--dk-surface-2);max-width:100%}
 .dk-page figure.is-style-dk-rounded .wp-block-embed__wrapper{border-radius:var(--dk-r-l);overflow:hidden}
 .dk-page figure.is-style-dk-rounded iframe{border:0}
+.dk-page figure.wp-block-image.is-style-dk-rounded{border-radius:var(--dk-r-m)}
+.dk-page figure.wp-block-image.is-style-dk-rounded img{border-radius:var(--dk-r-s)}
+/* images in a dk-grid: equal tiles, whole image visible (documents, certificates) */
+.dk-page .dk-grid>figure.wp-block-image{display:flex;aspect-ratio:4/3;margin:0;padding:12px;box-sizing:border-box;background:var(--dk-surface);border:1px solid var(--dk-line);border-radius:var(--dk-r-m)}
+.dk-page .dk-grid>figure.wp-block-image img{width:100%;height:100%;object-fit:contain}
 .dk-split.dk-align-end>h2{padding-bottom:12px}
 
 /* ---------- Tabs (.dk-tabs > .dk-tabpanel[h3 + list]; dk.js builds the tab list) ---------- */

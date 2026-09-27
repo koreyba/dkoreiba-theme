@@ -87,7 +87,8 @@ add_action( 'init', function () {
 			'dk-arrow' => 'DK: со стрелкой',
 		),
 		'core/image'     => array(
-			'dk-blob' => 'DK: живая форма',
+			'dk-blob'    => 'DK: живая форма',
+			'dk-rounded' => 'DK: скруглённый',
 		),
 		'core/embed'     => array(
 			'dk-rounded' => 'DK: скруглённый',
