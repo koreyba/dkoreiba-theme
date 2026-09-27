@@ -55,8 +55,8 @@ Rules for new work:
   `functions.php`), not a free-form class. Component-internal parts (dk-stat-num,
   dk-price, dk-meta…) keep plain `dk-*` classes.
 - A new reusable section → new file in `patterns/`, then use it on pages.
-- Selectors marked `/* legacy: */` in components.css support old markup; delete them
-  once no page uses those classes (search page content via REST first).
+- Before renaming/removing a class, search all page/post content via REST for it
+  (content is in the DB, not in git) — see "Verifying on staging".
 - Colours/fonts only via `--dk-*` tokens.
 
 ## Verifying on staging
@@ -73,7 +73,13 @@ Rules for new work:
 ## State (2026-09-27)
 - WPCode snippets 1402, 1403, 1410, 1412 (old copy of this design system) are
   **deactivated** on staging, not deleted.
-- Home page (id 1157) is on DK. Pages still on GreenShift: about (12), contact (16),
+- Home page (id 1157) is built from the DK patterns (hero, video, tabs, values-band,
+  experience, pricing). Pre-refactor content: revision 1414.
+- Catalog: private page "DK: каталог компонентов" (id 1419, /dk-catalog/) =
+  styles + all patterns. Regenerate after pattern changes: concatenate pattern
+  content (REST `/wp/v2/block-patterns/patterns`; `dk/styles` is Inserter:no, fetch
+  `/wp-content/themes/blocksy-child/patterns/styles.php`) and update page 1419.
+- Pages still on GreenShift: about (12), contact (16),
   calendar (1316), drafts 970/1250/1251/1302/1411.
 - Open: header buttons are injected by dk.js — replace with Blocksy header elements;
   `theme.json` for tokens in the editor palette (check Blocksy compatibility first);

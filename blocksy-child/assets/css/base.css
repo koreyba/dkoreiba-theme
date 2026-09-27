@@ -2,8 +2,7 @@
  *
  * Everything is scoped to .dk-page (a full-width group that every DK pattern
  * starts with), so pages still built with GreenShift are unaffected.
- * Text styles are core block styles registered in functions.php
- * (.is-style-dk-*); the bare .dk-* names are legacy aliases.
+ * Text styles are core block styles registered in functions.php (.is-style-dk-*).
  */
 
 /* ---------- Base ---------- */
@@ -30,16 +29,16 @@ html .dk-page :is(h1,h2,h3){font-family:var(--dk-font-display);font-weight:500;l
 .dk-page .dk-head{margin-bottom:40px;max-width:760px}
 
 /* ---------- Text styles (core/paragraph, core/heading) ---------- */
-.dk-page :is(.is-style-dk-eyebrow,.dk-eyebrow){font:600 13px/1.2 var(--dk-font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--dk-accent)}
-.dk-page :is(.is-style-dk-label,.dk-label){font:600 12px/1.2 var(--dk-font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--dk-ink-2)}
-.dk-page :is(.is-style-dk-lead,.dk-lead){font-size:clamp(18px,1.6vw,21px);line-height:1.6;max-width:34ch;color:var(--dk-ink-2)}
-.dk-page :is(.is-style-dk-muted,.dk-desc){color:var(--dk-ink-2);line-height:1.6}
-.dk-page :is(.is-style-dk-pill,.dk-pill){align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:10px 16px 10px 12px;border-radius:999px;background:var(--dk-accent-soft);color:var(--dk-ink);font:600 12.5px/1.3 var(--dk-font-body);letter-spacing:.1em;text-transform:uppercase}
-.dk-page :is(.is-style-dk-pill,.dk-pill)::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--dk-accent);animation:dk-pulse 2.4s infinite}
+.dk-page .is-style-dk-eyebrow{font:600 13px/1.2 var(--dk-font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--dk-accent)}
+.dk-page .is-style-dk-label{font:600 12px/1.2 var(--dk-font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--dk-ink-2)}
+.dk-page .is-style-dk-lead{font-size:clamp(18px,1.6vw,21px);line-height:1.6;max-width:34ch;color:var(--dk-ink-2)}
+.dk-page .is-style-dk-muted{color:var(--dk-ink-2);line-height:1.6}
+.dk-page .is-style-dk-pill{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:10px 16px 10px 12px;border-radius:999px;background:var(--dk-accent-soft);color:var(--dk-ink);font:600 12.5px/1.3 var(--dk-font-body);letter-spacing:.1em;text-transform:uppercase}
+.dk-page .is-style-dk-pill::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--dk-accent);animation:dk-pulse 2.4s infinite}
 @keyframes dk-pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--dk-accent) 55%,transparent)}70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
-.dk-page :is(.is-style-dk-tag,.dk-tag){align-self:flex-start;padding:6px 12px;border-radius:999px;background:var(--dk-accent-soft);font-size:14px;font-weight:500}
-.dk-page :is(h2.is-style-dk-display,.dk-h2){font-size:clamp(32px,4.4vw,52px)}
-.dk-page :is(.is-style-dk-link,.dk-link) a,.dk-page a.dk-link{color:var(--dk-accent);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.dk-page .is-style-dk-tag{align-self:flex-start;padding:6px 12px;border-radius:999px;background:var(--dk-accent-soft);font-size:14px;font-weight:500}
+.dk-page h2.is-style-dk-display{font-size:clamp(32px,4.4vw,52px)}
+.dk-page .is-style-dk-link a{color:var(--dk-accent);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 
 /* ---------- Buttons (core/buttons; styles: fill, outline, dk-arrow) ---------- */
 .dk-page .wp-block-buttons{display:flex;flex-wrap:wrap;gap:12px}
@@ -47,4 +46,4 @@ html .dk-page :is(h1,h2,h3){font-family:var(--dk-font-display);font-weight:500;l
 .dk-page .wp-block-button .wp-block-button__link:hover{background:var(--dk-accent-hover);color:var(--dk-accent-ink);transform:translateY(-1px)}
 .dk-page .wp-block-button.is-style-outline .wp-block-button__link{background:transparent;color:var(--dk-ink);border-color:var(--dk-line)}
 .dk-page .wp-block-button.is-style-outline .wp-block-button__link:hover{background:transparent;color:var(--dk-ink);border-color:var(--dk-ink)}
-.dk-page .wp-block-button:is(.is-style-dk-arrow,.dk-arrow) .wp-block-button__link::after{content:"";width:18px;height:18px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat}
+.dk-page .wp-block-button.is-style-dk-arrow .wp-block-button__link::after{content:"";width:18px;height:18px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat}
