@@ -127,5 +127,9 @@ Rules for new work:
 - Editor palette = Blocksy palette-color-1..8 + DK tokens (dk-*), via the
   `wp_theme_json_data_theme` filter in functions.php. Don't add a child theme.json
   palette: it makes WordPress drop Blocksy's editor-color-palette support.
+- Desktop header: Blocksy centres the menu between two equal side columns and folds
+  overflowing items into "More". Budget: menu ≈ 600 px; the CTA is hidden ≤1365 px so
+  all six items fit at every desktop width. Adding anything to the header end column
+  needs a re-check at 1181/1280/1366/1440 (fresh page load — Blocksy doesn't re-measure).
 - Open: Blocksy palette (`colorPalette`) is overridden by tokens.css, not by settings;
   PsyBooker widget styling.
