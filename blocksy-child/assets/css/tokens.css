@@ -4,7 +4,7 @@
 html:root{
   --dk-paper:#F1F4F2; --dk-surface:#FFFFFF; --dk-surface-2:#E3EBE8;
   --dk-ink:#16272A; --dk-ink-2:#4B5E61; --dk-line:#D2DCD9;
-  --dk-accent:#C24E1C; --dk-accent-hover:#A8410F; --dk-accent-ink:#FFFFFF; --dk-accent-soft:#F7E3D8;
+  --dk-accent:#BA4917; --dk-accent-hover:#A8410F; --dk-accent-ink:#FFFFFF; --dk-accent-soft:#F7E3D8;
   --dk-lake:#1F4D5A; --dk-lake-ink:#EAF2F1; --dk-lake-2:#9CC3CB;
   --dk-shadow:0 1px 2px rgba(22,39,42,.06),0 12px 32px -12px rgba(22,39,42,.18);
   --dk-font-display:"Literata",Georgia,"Times New Roman",serif;

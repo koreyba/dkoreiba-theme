@@ -89,6 +89,7 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 .dk-page .wppa-days-fade.left{background:linear-gradient(90deg,var(--dk-paper),transparent)}
 .dk-page .wppa-booking :is(select,input[type=text],input[type=email],input[type=tel]){box-sizing:border-box;min-height:52px;border:1px solid var(--dk-line)!important;border-radius:var(--dk-r-s)!important;background-color:var(--dk-surface)!important;color:var(--dk-ink)!important;font:400 16px/1.4 var(--dk-font-body)}
 .dk-page .wppa-booking input[type=checkbox]{accent-color:var(--dk-accent)}
+.dk-page .wppa-booking :is(.text-muted,.wppa-tz-detected){color:var(--dk-ink-2)!important}
 /* Bootstrap col-md-* switch by viewport width, not by our 520px column: name + email side by side, button on its own row */
 .dk-page .wppa-form.row>.col-md-5{width:50%}
 .dk-page .wppa-form.row>.col-md-2{width:100%}
