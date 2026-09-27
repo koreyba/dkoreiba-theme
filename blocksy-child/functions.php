@@ -236,3 +236,26 @@ add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $attachment 
 	}
 	return $attr;
 }, 10, 2 );
+
+/**
+ * YouTube facade: core/embed YouTube blocks render a thumbnail + play button instead of
+ * the iframe (~1.4 MB of player JS/CSS on page load). dk.js swaps in a
+ * youtube-nocookie iframe with autoplay on click.
+ */
+add_filter( 'render_block_core/embed', function ( $html, $block ) {
+	if ( ( $block['attrs']['providerNameSlug'] ?? '' ) !== 'youtube' ) {
+		return $html;
+	}
+	$url = $block['attrs']['url'] ?? '';
+	if ( ! preg_match( '~(?:youtu\.be/|v=|/embed/|/shorts/)([A-Za-z0-9_-]{11})~', $url, $m ) ) {
+		return $html;
+	}
+	$id     = $m[1];
+	$facade = sprintf(
+		'<button type="button" class="dk-yt" data-yt="%1$s" aria-label="Смотреть видео"><img src="https://i.ytimg.com/vi/%1$s/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="dk-yt__play" aria-hidden="true"></span></button>',
+		esc_attr( $id )
+	);
+	// keep the figure (classes, rounded style), replace only the wrapper content
+	$out = preg_replace( '~(<div class="wp-block-embed__wrapper">)[\s\S]*?(</div>)~', '$1' . $facade . '$2', $html, 1 );
+	return $out ?: $html;
+}, 10, 2 );
