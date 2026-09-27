@@ -81,7 +81,6 @@
   .dk-page .dk-tabs.is-ready>.dk-tabpanel h3{display:none}
   .dk-page .dk-tabs.is-ready>.dk-tabpanel:not([hidden]){animation:dk-fade .3s ease both}
 }
-}
 
 /* ---------- Dot list (core/list style; default inside tab panels) ---------- */
 .dk-page :is(ul.is-style-dk-dots,.dk-tabpanel ul){list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}

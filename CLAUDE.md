@@ -30,8 +30,8 @@ we can do in the theme (GreenShift and WPCode design snippets are deactivated).
    inlines CSS/JS, so without a purge the old version is served.
 4. Verify (below). Check the deployed version: `/wp-content/themes/blocksy-child/style.css`.
 
-Lint PHP before pushing — a syntax error takes the whole staging site down:
-`docker run --rm -v "$PWD/blocksy-child":/t -w /t php:8.2-cli sh -c 'for f in $(find . -name "*.php"); do php -l $f; done'`
+Run `tools/check.sh` before pushing (PHP syntax — an error takes staging down; JS syntax;
+CSS brace balance — a stray `}` silently drops the next rule).
 
 ## Architecture
 ```
