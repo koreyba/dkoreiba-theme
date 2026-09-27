@@ -153,3 +153,37 @@ add_action( 'rest_api_init', function () {
 		},
 	) );
 } );
+
+/**
+ * Editor colour palette: append DK tokens to the palette Blocksy provides (it adds its
+ * own palette-color-N at runtime; a child theme.json would replace it). Values are
+ * CSS variables, so has-dk-*-color classes follow the light/dark tokens.
+ */
+add_filter( 'wp_theme_json_data_theme', function ( $theme_json ) {
+	$data    = $theme_json->get_data();
+	$palette = $data['settings']['color']['palette']['theme'] ?? $data['settings']['color']['palette'] ?? array();
+	if ( ! is_array( $palette ) ) {
+		$palette = array();
+	}
+	$dk = array(
+		'dk-ink'       => 'DK: текст',
+		'dk-ink-2'     => 'DK: текст второстепенный',
+		'dk-paper'     => 'DK: фон',
+		'dk-surface'   => 'DK: поверхность',
+		'dk-surface-2' => 'DK: поверхность 2',
+		'dk-line'      => 'DK: линия',
+		'dk-accent'    => 'DK: акцент',
+		'dk-accent-soft' => 'DK: акцент мягкий',
+		'dk-lake'      => 'DK: тёмная лента',
+	);
+	$slugs = wp_list_pluck( $palette, 'slug' );
+	foreach ( $dk as $slug => $name ) {
+		if ( ! in_array( $slug, $slugs, true ) ) {
+			$palette[] = array( 'slug' => $slug, 'name' => $name, 'color' => 'var(--' . $slug . ')' );
+		}
+	}
+	return $theme_json->update_with( array(
+		'version'  => 3,
+		'settings' => array( 'color' => array( 'palette' => $palette ) ),
+	) );
+} );
