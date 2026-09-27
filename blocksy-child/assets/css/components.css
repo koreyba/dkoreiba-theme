@@ -86,7 +86,7 @@
 .dk-page :is(ul.is-style-dk-dots,.dk-tabpanel ul){list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
 .dk-page :is(ul.is-style-dk-dots,.dk-tabpanel ul) li{position:relative;padding:14px 0 14px 30px;border-bottom:1px solid var(--dk-line);line-height:1.45;margin:0}
 .dk-page :is(ul.is-style-dk-dots,.dk-tabpanel ul) li::before{content:"";position:absolute;left:4px;top:21px;width:10px;height:10px;border-radius:60% 40% 55% 45%;background:var(--dk-accent);opacity:.85}
-@media (max-width:860px){.dk-page :is(ul.is-style-dk-dots,.dk-tabpanel ul){grid-template-columns:1fr}}
+@media (max-width:600px){.dk-page :is(ul.is-style-dk-dots,.dk-tabpanel ul){grid-template-columns:1fr}}
 
 /* ---------- Band (core/group style: dark full-bleed panel) ---------- */
 .dk-page .is-style-dk-band{background:var(--dk-lake);color:var(--dk-lake-ink);border-radius:clamp(24px,4vw,48px);margin-inline:clamp(8px,1.5vw,24px)!important;padding-block:var(--dk-sp-section)}
