@@ -17,7 +17,8 @@ we can do in the theme (GreenShift and WPCode design snippets are deactivated).
   Before: JetBackup backup. After: W3 Total Cache → Purge All Caches on production.
 - Cloudflare (zone dkoreiba.com, Free) caches HTML at the edge: Cache Rule "DK: cache HTML pages 1h"
   (skips /wp-admin, /wp-login.php, /wp-json, calendar, logged-in/comment/postpass cookies,
-  ?s= / ?p= / preview; query string ignored in the cache key) + Smart Tiered Cache on.
+  ?s= / ?p= / preview; query string ignored in the cache key) + Smart Tiered Cache,
+  Crawler Hints (IndexNow) and Speed Brain (prefetch on click/tap) on.
   After Push to Live or any content change: Cloudflare → Caching → Purge Everything too,
   otherwise visitors see the old page for up to 1 h. Reason (2026-09-27): hosting has a
   2-core CPU limit; bursts of uncached requests queued for 15–25 s / Cloudflare 522.
