@@ -41,7 +41,7 @@ blocksy-child/
   assets/css/base.css    .dk-page scope, typography, text styles, buttons
   assets/css/layout.css  primitives: dk-wrap, dk-section, dk-stack*, dk-split*, dk-grid*
   assets/css/components.css  hero, tabs, band, stats, timeline, cards, price…
-  assets/css/vendors.css Blocksy header/footer, TranslatePress, GreenShift footer widgets
+  assets/css/vendors.css Blocksy header/footer, TranslatePress, Fluent Forms
   assets/js/theme-init.js    inline in <head>: data-dk-theme + window.dkToggleTheme
   assets/js/dk.js            tabs (.dk-tabs > .dk-tabpanel), header theme button + CTA
   patterns/*.php         section patterns, category "DK: секции" (auto-registered)
@@ -96,10 +96,17 @@ Rules for new work:
   (`[language-switcher][dk_theme_toggle]`), CTA = Blocksy "Button" element; dk.js no
   longer injects markup. Customizer snapshot: `config/theme-mods.stage.json`.
 - Translations are knowingly out of date after migrations — to be redone later.
-- Pages still on GreenShift:
-  calendar (1316), drafts 970/1250/1251/1302/1411.
+- Calendar (id 1316) rebuilt from `content/calendar.html` (PsyBooker `[wppa_booking]`
+  in a 520px wrap); old version: revision 1317. PsyBooker's timezone select stays
+  white in dark mode (not styled yet).
+- Footer widgets are core blocks from `content/footer.json` (widgets block-25..28);
+  the old GreenShift widgets are in "Inactive widgets" (block-10/15/20/22/24).
+- All published *pages* are GreenShift-free. GreenShift is still used by 8 blog
+  posts (280 blocks), incl. the service posts linked from the home pricing cards:
+  /psychotherapy-and-coaching (post 888), /сrisis-consultation (post 886).
+  Drafts 970/1250/1251/1302/1411 are out of scope (owner's decision).
 - Editor palette = Blocksy palette-color-1..8 + DK tokens (dk-*), via the
   `wp_theme_json_data_theme` filter in functions.php. Don't add a child theme.json
   palette: it makes WordPress drop Blocksy's editor-color-palette support.
 - Open: Blocksy palette (`colorPalette`) is overridden by tokens.css, not by settings;
-  footer still uses GreenShift widgets (styled in vendors.css).
+  PsyBooker widget styling.
