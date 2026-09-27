@@ -98,6 +98,8 @@ Rules for new work:
 - Translations are knowingly out of date after migrations — to be redone later.
 - Pages still on GreenShift:
   calendar (1316), drafts 970/1250/1251/1302/1411.
-- Open: `theme.json` for tokens in the editor palette (check Blocksy compatibility
-  first); Blocksy palette (`colorPalette`) is overridden by tokens.css, not by settings;
+- Editor palette = Blocksy palette-color-1..8 + DK tokens (dk-*), via the
+  `wp_theme_json_data_theme` filter in functions.php. Don't add a child theme.json
+  palette: it makes WordPress drop Blocksy's editor-color-palette support.
+- Open: Blocksy palette (`colorPalette`) is overridden by tokens.css, not by settings;
   footer still uses GreenShift widgets (styled in vendors.css).
