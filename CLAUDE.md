@@ -54,7 +54,12 @@ Rules for new work:
 - Look of a core block = a registered block style (`is-style-dk-*`, see
   `functions.php`), not a free-form class. Component-internal parts (dk-stat-num,
   dk-price, dk-meta…) keep plain `dk-*` classes.
-- A new reusable section → new file in `patterns/`, then use it on pages.
+- A new reusable section → new file in `patterns/` (write markup with
+  `tools/blocks.py`, it emits what the editor saves), then use it on pages.
+  WordPress caches the pattern list per theme version; functions.php clears that
+  cache when pattern files change, so no manual step is needed.
+- Page content built by Claude goes to `content/<page>.html` (see content/README.md)
+  and is pushed to staging via REST by fetching it from raw.githubusercontent.com.
 - Before renaming/removing a class, search all page/post content via REST for it
   (content is in the DB, not in git) — see "Verifying on staging".
 - Colours/fonts only via `--dk-*` tokens.
@@ -79,7 +84,13 @@ Rules for new work:
   styles + all patterns. Regenerate after pattern changes: concatenate pattern
   content (REST `/wp/v2/block-patterns/patterns`; `dk/styles` is Inserter:no, fetch
   `/wp-content/themes/blocksy-child/patterns/styles.php`) and update page 1419.
-- Pages still on GreenShift: about (12), contact (16),
+- About (id 12) rebuilt on DK from `content/about.html`; old GreenShift version:
+  revision 1326.
+- **Translations (TranslatePress, /ua/, /en/) match strings exactly.** Re-segmenting
+  text (splitting a block into paragraphs) loses the translation for that string —
+  about page UA/EN are partly untranslated after the migration. When migrating a
+  page, either keep the original text blocks 1:1 or re-translate in TranslatePress.
+- Pages still on GreenShift: contact (16),
   calendar (1316), drafts 970/1250/1251/1302/1411.
 - Open: header buttons are injected by dk.js — replace with Blocksy header elements;
   `theme.json` for tokens in the editor palette (check Blocksy compatibility first);

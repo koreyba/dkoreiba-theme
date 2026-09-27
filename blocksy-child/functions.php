@@ -102,3 +102,19 @@ add_action( 'init', function () {
 
 	register_block_pattern_category( 'dk', array( 'label' => 'DK: секции' ) );
 } );
+
+/**
+ * WordPress caches the theme's patterns/ file list until the theme version changes.
+ * Drop that cache whenever a deploy adds, removes or edits a pattern file.
+ */
+add_action( 'init', function () {
+	$files = glob( get_stylesheet_directory() . '/patterns/*.php' ) ?: array();
+	$sig   = md5( implode( '|', array_map( function ( $f ) { return basename( $f ) . ':' . filemtime( $f ); }, $files ) ) );
+	if ( get_option( 'dk_ds_patterns_sig' ) !== $sig ) {
+		$theme = wp_get_theme();
+		if ( method_exists( $theme, 'delete_pattern_cache' ) ) {
+			$theme->delete_pattern_cache();
+		}
+		update_option( 'dk_ds_patterns_sig', $sig, false );
+	}
+}, 1 );
