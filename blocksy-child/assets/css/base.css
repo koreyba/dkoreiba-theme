@@ -10,6 +10,8 @@ html body{background-color:var(--dk-paper);color:var(--dk-ink);font-family:var(-
 html{scroll-padding-top:96px}
 body :is(h1,h2,h3,h4,h5,h6){font-family:var(--dk-font-display)}
 .ct-container-full:has(.dk-page){padding-block:0}
+/* DK sections stack edge to edge regardless of Blocksy's per-page content spacing */
+.entry-content>.dk-page.dk-page{margin-block:0}
 
 .dk-page{--dk-flow:0;color:var(--dk-ink);font:400 17px/1.65 var(--dk-font-body);-webkit-font-smoothing:antialiased}
 .dk-page.dk-page :is(h1,h2,h3,h4,p,ul,ol,figure){margin:0}
