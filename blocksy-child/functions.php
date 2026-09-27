@@ -156,14 +156,17 @@ add_action( 'rest_api_init', function () {
 
 /**
  * Editor colour palette: append DK tokens to the palette Blocksy provides (it adds its
- * own palette-color-N at runtime; a child theme.json would replace it). Values are
+ * own palette-color-N via theme support; a child theme.json would replace it). Values are
  * CSS variables, so has-dk-*-color classes follow the light/dark tokens.
  */
 add_filter( 'wp_theme_json_data_theme', function ( $theme_json ) {
 	$data    = $theme_json->get_data();
-	$palette = $data['settings']['color']['palette']['theme'] ?? $data['settings']['color']['palette'] ?? array();
-	if ( ! is_array( $palette ) ) {
-		$palette = array();
+	$palette = $data['settings']['color']['palette'] ?? array();
+	if ( empty( $palette ) ) {
+		// Blocksy registers palette-color-1..8 via add_theme_support( 'editor-color-palette' ),
+		// which WordPress only uses when theme.json data has no palette — keep it.
+		$support = get_theme_support( 'editor-color-palette' );
+		$palette = is_array( $support ) && isset( $support[0] ) && is_array( $support[0] ) ? $support[0] : array();
 	}
 	$dk = array(
 		'dk-ink'       => 'DK: текст',
