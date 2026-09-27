@@ -3,7 +3,7 @@
 /* ---------- 13. Header (Blocksy) ---------- */
 #header [data-row]{background:color-mix(in srgb,var(--dk-paper) 84%,transparent)!important;-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--dk-line)!important;box-shadow:none!important}
 #header .header-menu-1{--theme-link-initial-color:var(--dk-ink-2);--theme-link-hover-color:var(--dk-ink);--theme-link-active-color:var(--dk-ink)}
-#header .header-menu-1 .menu>li>a{font:400 15px/1 var(--dk-font-body);padding-inline:14px;border-radius:999px;height:40px;transition:color .2s,background-color .2s}
+#header .header-menu-1 .menu>li>a{font:400 15px/1 var(--dk-font-body);padding-inline:10px;border-radius:999px;height:40px;transition:color .2s,background-color .2s}
 #header .header-menu-1 .menu>li>a:hover{background:var(--dk-surface-2)}
 #header .header-menu-1 .menu>li.current-menu-item.menu-item-home>a{color:var(--dk-ink);font-weight:500}
 #header .header-menu-1 .menu>li.menu-item-726>a{color:var(--dk-ink-2);font-weight:400}
@@ -23,7 +23,7 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-sun{display:none}
 html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 @media (prefers-color-scheme:dark){html:not([data-dk-theme="light"]) .dk-theme-btn .dk-sun{display:none}html:not([data-dk-theme="light"]) .dk-theme-btn .dk-moon{display:block}}
 /* Blocksy header "Button" element = DK CTA */
-#header .ct-header-cta .ct-button{display:inline-flex;align-items:center;min-height:44px;height:auto;padding:0 20px;border:0;border-radius:999px;background:var(--dk-accent);color:var(--dk-accent-ink)!important;font:500 15px/1 var(--dk-font-body);text-decoration:none;white-space:nowrap;transition:background-color .2s}
+#header .ct-header-cta .ct-button{display:inline-flex;align-items:center;min-height:44px;height:auto;padding:0 16px;border:0;border-radius:999px;background:var(--dk-accent);color:var(--dk-accent-ink)!important;font:500 15px/1 var(--dk-font-body);text-decoration:none;white-space:nowrap;transition:background-color .2s}
 #header .ct-header-cta .ct-button:hover{background:var(--dk-accent-hover)}
 @media (max-width:1180px){#header .ct-header-cta{display:none}}
 #offcanvas,#offcanvas .ct-panel-inner{background-color:var(--dk-paper)!important}
@@ -137,11 +137,14 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 #moove_gdpr_cookie_modal .moove-gdpr-modal-close,#moove_gdpr_cookie_modal .moove-gdpr-modal-close span{color:var(--dk-ink)!important;background:transparent!important;border-color:var(--dk-line)!important}
 
 /* ---------- 21. Language switcher [dk_lang_switch] (flags only) ---------- */
-.dk-lang{display:inline-flex;align-items:center;gap:2px;height:44px;padding:0 5px;box-sizing:border-box;border:1px solid var(--dk-line);border-radius:999px}
-.dk-lang__item{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;transition:background-color .2s,opacity .2s}
+.dk-lang{display:inline-flex;align-items:center;gap:0;height:44px;padding:0 4px;box-sizing:border-box;border:1px solid var(--dk-line);border-radius:999px}
+.dk-lang__item{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;transition:background-color .2s,opacity .2s}
 .dk-lang__item img{display:block;width:20px;height:15px;object-fit:cover;border-radius:3px}
 .dk-lang__item.is-current{background:var(--dk-surface-2)}
 a.dk-lang__item{opacity:.55}
 a.dk-lang__item:hover,a.dk-lang__item:focus-visible{opacity:1;background:var(--dk-surface-2)}
 /* TranslatePress menu item replaced by [dk_lang_switch] */
 :is(#header,#offcanvas) .menu .trp-menu-ls-item{display:none!important}
+/* Blocksy centres the menu between equal side columns and moves overflowing items into
+   "More" — keep the side columns narrow enough for all six items (see CLAUDE.md) */
+#header [data-device="desktop"] .header-menu-1 .menu{column-gap:2px}
