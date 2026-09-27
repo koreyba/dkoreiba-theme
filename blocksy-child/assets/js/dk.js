@@ -1,4 +1,4 @@
-/* DK Design System — behaviour: tabs, header theme button */
+/* DK Design System — behaviour: tabs (accordion on phones), header theme button */
 (function(){
   var ICONS=[
     '<path d="M12 21c-5-3.5-8-7-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 3.5C20 14 17 17.5 12 21z"/>',
@@ -10,23 +10,49 @@
   ];
   function svg(inner){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+inner+'</svg>';}
 
+  var MOBILE=window.matchMedia('(max-width:860px)');
+  var CHEV='<path d="m6 9 6 6 6-6"/>';
+
+  /* .dk-tabs > .dk-tabpanel[h2|h3 + content]: tabs on desktop, accordion on phones.
+     One state (current panel); on phones it can be -1 (all collapsed). */
   function initTabs(root,n){
     var panels=[].slice.call(root.children).filter(function(c){return c.classList.contains('dk-tabpanel');});
     if(!panels.length)return;
+    var current=0;
     var list=document.createElement('div');list.className='dk-tablist';list.setAttribute('role','tablist');
-    var tabs=panels.map(function(p,i){
-      var h=p.querySelector('h2,h3,h4');var id='dk-tabs'+n+'-'+i;
+    var tabs=[],heads=[];
+    panels.forEach(function(p,i){
+      var h=p.querySelector('h2,h3,h4');var id='dk-tabs'+n+'-'+i;var title=h?h.textContent.trim():'Tab '+(i+1);
+      var count=p.querySelectorAll('li').length;
       p.id=p.id||id+'-p';p.setAttribute('role','tabpanel');p.setAttribute('aria-labelledby',id);
-      var b=document.createElement('button');b.type='button';b.className='dk-tab';b.id=id;b.setAttribute('role','tab');b.setAttribute('aria-controls',p.id);
-      b.innerHTML=(ICONS[i]?svg(ICONS[i]):'')+'<span></span>';b.lastChild.textContent=h?h.textContent.trim():'Tab '+(i+1);
-      list.appendChild(b);return b;
+      var t=document.createElement('button');t.type='button';t.className='dk-tab';t.id=id;t.setAttribute('role','tab');t.setAttribute('aria-controls',p.id);
+      t.innerHTML=(ICONS[i]?svg(ICONS[i]):'')+'<span></span>';t.lastChild.textContent=title;
+      list.appendChild(t);tabs.push(t);
+      var a=document.createElement('button');a.type='button';a.className='dk-acc-trigger';a.setAttribute('aria-controls',p.id);
+      a.innerHTML=(ICONS[i]?svg(ICONS[i]):'')+'<span class="dk-acc-title"></span>'+(count?'<span class="dk-acc-count">'+count+'</span>':'')+'<span class="dk-acc-chev">'+svg(CHEV)+'</span>';
+      a.querySelector('.dk-acc-title').textContent=title;
+      root.insertBefore(a,p);heads.push(a);
     });
-    function select(i,focus){tabs.forEach(function(t,j){var on=i===j;t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1;panels[j].hidden=!on;});if(focus)tabs[i].focus();}
+    function render(){
+      if(!MOBILE.matches&&current<0)current=0;
+      panels.forEach(function(p,j){var on=j===current;p.hidden=!on;
+        tabs[j].setAttribute('aria-selected',String(on));tabs[j].tabIndex=on?0:-1;
+        heads[j].setAttribute('aria-expanded',String(on));});
+    }
+    function select(i,focus){current=i;render();if(focus)tabs[i].focus();}
     tabs.forEach(function(t,i){
       t.addEventListener('click',function(){select(i);t.scrollIntoView({block:'nearest',inline:'nearest'});});
       t.addEventListener('keydown',function(e){var d={ArrowDown:1,ArrowRight:1,ArrowUp:-1,ArrowLeft:-1}[e.key];if(d){e.preventDefault();select((i+d+tabs.length)%tabs.length,true);}});
     });
-    root.insertBefore(list,root.firstChild);root.classList.add('is-ready');select(0);
+    heads.forEach(function(a,i){
+      a.addEventListener('click',function(){
+        current=current===i?-1:i;render();
+        // keep the tapped row in view when a panel above it collapses (sticky header ≈ 90px)
+        var top=a.getBoundingClientRect().top;if(top<90)window.scrollBy(0,top-90);
+      });
+    });
+    if(MOBILE.addEventListener)MOBILE.addEventListener('change',render);
+    root.insertBefore(list,root.firstChild);root.classList.add('is-ready');render();
   }
 
   // Header theme button is server-rendered by [dk_theme_toggle] (functions.php).

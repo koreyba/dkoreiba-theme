@@ -7,7 +7,7 @@
 
 /* ---------- Base ---------- */
 html body{background-color:var(--dk-paper);color:var(--dk-ink);font-family:var(--dk-font-body);transition:background-color .4s,color .4s}
-html{scroll-padding-top:96px}
+html{scroll-padding-top:32px} /* Blocksy already offsets anchors by the sticky header height */
 body :is(h1,h2,h3,h4,h5,h6){font-family:var(--dk-font-display)}
 .ct-container-full:has(.dk-page){padding-block:0}
 
