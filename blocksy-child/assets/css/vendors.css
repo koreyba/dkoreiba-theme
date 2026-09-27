@@ -104,3 +104,37 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 .dk-sidebar-cta h2{font:400 26px/1.15 var(--dk-font-display);color:var(--dk-ink)}
 .dk-sidebar-cta .wp-block-button__link{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:999px;background:var(--dk-accent);color:var(--dk-accent-ink);font:500 15px/1 var(--dk-font-body)}
 .dk-sidebar-cta .wp-block-button__link:hover{background:var(--dk-accent-hover);color:var(--dk-accent-ink)}
+
+/* ---------- 20. GDPR Cookie Compliance (moove) banner + settings modal ----------
+   The plugin prints long id-based selectors inline, hence the !important. */
+#moove_gdpr_cookie_info_bar{left:16px!important;right:16px!important;bottom:16px!important;max-width:760px;margin-inline:auto!important;padding:0!important;border:1px solid var(--dk-line)!important;border-radius:var(--dk-r-m)!important;background:var(--dk-surface)!important;color:var(--dk-ink)!important;box-shadow:var(--dk-shadow)!important;font-family:var(--dk-font-body)!important}
+#moove_gdpr_cookie_info_bar .moove-gdpr-info-bar-container{padding:16px 20px!important}
+#moove_gdpr_cookie_info_bar .moove-gdpr-info-bar-content{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px}
+#moove_gdpr_cookie_info_bar .moove-gdpr-cookie-notice p,#moove_gdpr_cookie_info_bar .moove-gdpr-cookie-notice p span{margin:0!important;color:var(--dk-ink-2)!important;font:400 15px/1.5 var(--dk-font-body)!important}
+#moove_gdpr_cookie_info_bar .change-settings-button{padding:0!important;border:0!important;background:none!important;color:var(--dk-accent)!important;font:inherit!important;text-decoration:underline!important;text-underline-offset:3px}
+#moove_gdpr_cookie_info_bar .moove-gdpr-button-holder{display:flex;align-items:center;gap:8px;margin:0!important;padding:0!important}
+#moove_gdpr_cookie_info_bar .mgbutton{min-height:40px!important;margin:0!important;padding:0 18px!important;border-radius:999px!important;font:500 14px/1 var(--dk-font-body)!important;opacity:1!important;box-shadow:none!important}
+#moove_gdpr_cookie_info_bar .moove-gdpr-infobar-allow-all{background:var(--dk-accent)!important;border:1px solid var(--dk-accent)!important;color:var(--dk-accent-ink)!important}
+#moove_gdpr_cookie_info_bar .moove-gdpr-infobar-allow-all:hover{background:var(--dk-accent-hover)!important;border-color:var(--dk-accent-hover)!important}
+#moove_gdpr_cookie_info_bar .moove-gdpr-infobar-reject-btn{background:transparent!important;border:1px solid var(--dk-line)!important;color:var(--dk-ink)!important}
+#moove_gdpr_cookie_info_bar .moove-gdpr-infobar-reject-btn:hover{border-color:var(--dk-ink)!important}
+#moove_gdpr_cookie_info_bar .moove-gdpr-infobar-close-btn{border:0!important;background:transparent!important;color:var(--dk-ink-2)!important}
+#moove_gdpr_cookie_info_bar .moove-gdpr-infobar-close-btn i,#moove_gdpr_cookie_info_bar .moovegdpr-arrow-close{color:var(--dk-ink-2)!important}
+#moove_gdpr_cookie_info_bar .moovegdpr-arrow-close:before,#moove_gdpr_cookie_info_bar .moovegdpr-arrow-close:after{background:var(--dk-ink-2)!important}
+
+#moove_gdpr_cookie_modal .moove-gdpr-modal-content{border:1px solid var(--dk-line)!important;border-radius:var(--dk-r-l)!important;background:var(--dk-surface)!important;color:var(--dk-ink)!important;font-family:var(--dk-font-body)!important;overflow:hidden}
+#moove_gdpr_cookie_modal .moove-gdpr-modal-left-content{background:var(--dk-surface-2)!important}
+#moove_gdpr_cookie_modal .moove-gdpr-company-logo-holder,#moove_gdpr_cookie_modal .moove-gdpr-branding-cnt{display:none!important}
+#moove_gdpr_cookie_modal #moove-gdpr-menu .moove-gdpr-tab-nav{border-radius:var(--dk-r-s)!important;background:transparent!important;color:var(--dk-ink-2)!important}
+#moove_gdpr_cookie_modal #moove-gdpr-menu li.menu-item-selected .moove-gdpr-tab-nav,#moove_gdpr_cookie_modal #moove-gdpr-menu .moove-gdpr-tab-nav:hover{background:var(--dk-surface)!important;color:var(--dk-ink)!important}
+#moove_gdpr_cookie_modal .gdpr-nav-tab-title{font:500 15px/1.35 var(--dk-font-body)!important;color:inherit!important}
+#moove_gdpr_cookie_modal :is(.moove-gdpr-modal-title,.tab-title,h1,h2,h3){font-family:var(--dk-font-display)!important;font-weight:500!important;color:var(--dk-ink)!important}
+#moove_gdpr_cookie_modal .moove-gdpr-tab-main-content,#moove_gdpr_cookie_modal .moove-gdpr-tab-main-content p{color:var(--dk-ink-2)!important;font:400 15px/1.6 var(--dk-font-body)!important}
+#moove_gdpr_cookie_modal .moove-gdpr-tab-main-content a{color:var(--dk-accent)!important}
+#moove_gdpr_cookie_modal .cookie-switch .cookie-slider{background:var(--dk-line)!important}
+#moove_gdpr_cookie_modal .cookie-switch input:checked+.cookie-slider{background:var(--dk-accent)!important}
+#moove_gdpr_cookie_modal .moove-gdpr-status-bar,#moove_gdpr_cookie_modal .moove-gdpr-modal-footer-content{border-color:var(--dk-line)!important;background:transparent!important}
+#moove_gdpr_cookie_modal .mgbutton{border-radius:999px!important;font:500 14px/1 var(--dk-font-body)!important;opacity:1!important}
+#moove_gdpr_cookie_modal .moove-gdpr-modal-allow-all,#moove_gdpr_cookie_modal .moove-gdpr-modal-save-settings{background:var(--dk-accent)!important;border:1px solid var(--dk-accent)!important;color:var(--dk-accent-ink)!important}
+#moove_gdpr_cookie_modal .moove-gdpr-modal-reject-all{background:transparent!important;border:1px solid var(--dk-line)!important;color:var(--dk-ink)!important}
+#moove_gdpr_cookie_modal .moove-gdpr-modal-close,#moove_gdpr_cookie_modal .moove-gdpr-modal-close span{color:var(--dk-ink)!important;background:transparent!important;border-color:var(--dk-line)!important}
