@@ -135,3 +135,21 @@ add_shortcode( 'dk_theme_toggle', function () {
 		. '<svg class="dk-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>'
 		. '</button>';
 } );
+
+/**
+ * GET /wp-json/dk/v1/theme-mods — saved Customizer values (Blocksy header/footer,
+ * palette…), admin only, read only. Used to snapshot config into config/ in git.
+ */
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'dk/v1', '/theme-mods', array(
+		'methods'             => 'GET',
+		'permission_callback' => function () {
+			return current_user_can( 'edit_theme_options' );
+		},
+		'callback'            => function () {
+			$mods = get_theme_mods();
+			ksort( $mods );
+			return rest_ensure_response( $mods );
+		},
+	) );
+} );
