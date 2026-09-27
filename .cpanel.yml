@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/koreyb03/stage.dkoreiba.com/wp-content/themes/blocksy-child/
+    - /bin/cp -R blocksy-child/. $DEPLOYPATH

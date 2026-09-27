@@ -1,0 +1,47 @@
+/* DK Design System — tokens (light site-wide, dark on .dk-page) */
+
+/* ---------- 1. Tokens (light, site-wide) ---------- */
+html:root{
+  --dk-paper:#F1F4F2; --dk-surface:#FFFFFF; --dk-surface-2:#E3EBE8;
+  --dk-ink:#16272A; --dk-ink-2:#4B5E61; --dk-line:#D2DCD9;
+  --dk-accent:#C24E1C; --dk-accent-hover:#A8410F; --dk-accent-ink:#FFFFFF; --dk-accent-soft:#F7E3D8;
+  --dk-lake:#1F4D5A; --dk-lake-ink:#EAF2F1; --dk-lake-2:#9CC3CB;
+  --dk-shadow:0 1px 2px rgba(22,39,42,.06),0 12px 32px -12px rgba(22,39,42,.18);
+  --dk-font-display:"Literata",Georgia,"Times New Roman",serif;
+  --dk-font-body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --dk-r-s:12px; --dk-r-m:20px; --dk-r-l:32px;
+  --dk-gutter:clamp(16px,4vw,48px); --dk-max:1200px;
+  --dk-sp-section:clamp(72px,10vw,136px);
+
+  /* Blocksy palette → tokens */
+  --theme-palette-color-1:var(--dk-accent);
+  --theme-palette-color-2:var(--dk-accent-hover);
+  --theme-palette-color-3:var(--dk-ink-2);
+  --theme-palette-color-4:var(--dk-ink);
+  --theme-palette-color-5:var(--dk-line);
+  --theme-palette-color-6:var(--dk-surface-2);
+  --theme-palette-color-7:var(--dk-paper);
+  --theme-palette-color-8:var(--dk-surface);
+  --theme-font-family:var(--dk-font-body);
+}
+
+/* ---------- 2. Dark tokens (only on redesigned pages) ---------- */
+@media (prefers-color-scheme:dark){
+  html:root:not([data-dk-theme="light"]):has(.dk-page){
+    color-scheme:dark;
+    --dk-paper:#0E1618; --dk-surface:#162124; --dk-surface-2:#1C2B2F;
+    --dk-ink:#E3EBE9; --dk-ink-2:#9FB1B3; --dk-line:#29393D;
+    --dk-accent:#F08556; --dk-accent-hover:#F59D76; --dk-accent-ink:#1B0D06; --dk-accent-soft:#3A2419;
+    --dk-lake:#12282E; --dk-lake-ink:#E3EBE9; --dk-lake-2:#7FB1BC;
+    --dk-shadow:0 1px 2px rgba(0,0,0,.3),0 16px 40px -16px rgba(0,0,0,.6);
+  }
+}
+html:root[data-dk-theme="dark"]:has(.dk-page){
+  color-scheme:dark;
+  --dk-paper:#0E1618; --dk-surface:#162124; --dk-surface-2:#1C2B2F;
+  --dk-ink:#E3EBE9; --dk-ink-2:#9FB1B3; --dk-line:#29393D;
+  --dk-accent:#F08556; --dk-accent-hover:#F59D76; --dk-accent-ink:#1B0D06; --dk-accent-soft:#3A2419;
+  --dk-lake:#12282E; --dk-lake-ink:#E3EBE9; --dk-lake-2:#7FB1BC;
+  --dk-shadow:0 1px 2px rgba(0,0,0,.3),0 16px 40px -16px rgba(0,0,0,.6);
+}
+
