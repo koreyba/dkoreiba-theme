@@ -62,8 +62,8 @@
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"dk-hero-media","layout":{"type":"default"}} -->
-<div class="wp-block-group dk-hero-media"><!-- wp:image {"id":1161,"sizeSlug":"full","linkDestination":"none","className":"is-style-dk-blob"} -->
-<figure class="wp-block-image size-full is-style-dk-blob"><img src="/wp-content/uploads/2025/06/Flux_Dev_A_portrait_of_a_psychologist_sitting_in_a_simple_armc_0.webp" alt="Корейба Денис" class="wp-image-1161"/></figure>
+<div class="wp-block-group dk-hero-media"><!-- wp:image {"id":1161,"sizeSlug":"full","linkDestination":"none","className":"is-style-dk-circle"} -->
+<figure class="wp-block-image size-full is-style-dk-circle"><img src="/wp-content/uploads/2025/06/Flux_Dev_A_portrait_of_a_psychologist_sitting_in_a_simple_armc_0.webp" alt="Корейба Денис" class="wp-image-1161"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:group {"className":"is-style-dk-quote-card","layout":{"type":"default"}} -->
