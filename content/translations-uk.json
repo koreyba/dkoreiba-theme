@@ -2,10 +2,6 @@
  "_note": "RU → UK pairs for TranslatePress (dictionary ru_ru_uk). Push with POST /wp-json/dk/v1/translations {pairs:[...]}. Keys are the exact RU strings TranslatePress extracts (text split at inline links/emphasis). Dashes inside some strings are stored HTML-encoded (&#8212;) — match the dictionary exactly.",
  "pairs": [
   {
-   "original": "Русский",
-   "translated": "Російська"
-  },
-  {
    "original": "Корейба",
    "translated": "Корейба"
   },
@@ -152,10 +148,6 @@
   {
    "original": "© 2026 - Корейба Денис",
    "translated": "© 2026 - Корейба Денис"
-  },
-  {
-   "original": "Язык сайта",
-   "translated": "Мова сайту"
   },
   {
    "original": "Українська",

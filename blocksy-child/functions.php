@@ -198,7 +198,8 @@ add_shortcode( 'dk_lang_switch', function () {
 		return '';
 	}
 	global $TRP_LANGUAGE;
-	$out = '<nav class="dk-lang" aria-label="Язык сайта" data-no-translation>';
+	// data-no-translation keeps TP off the flags (native language names), so the label is set here.
+	$out = '<nav class="dk-lang" aria-label="' . ( 'uk' === $TRP_LANGUAGE ? 'Мова сайту' : 'Язык сайта' ) . '" data-no-translation>';
 	foreach ( trp_custom_language_switcher() as $code => $lang ) {
 		$img = sprintf( '<img src="%s" alt="%s" width="20" height="15" loading="eager" decoding="async">', esc_url( $lang['flag_link'] ), esc_attr( $lang['language_name'] ) );
 		if ( $code === $TRP_LANGUAGE ) {
