@@ -1,5 +1,8 @@
 ---
+# cPanel Git Version Control → "Deploy HEAD Commit". STAGING ONLY.
+# rsync --delete mirrors the theme (files removed from git are removed on the server);
+# falls back to cp -R (additive) if rsync is missing.
 deployment:
   tasks:
     - export DEPLOYPATH=/home/koreyb03/stage.dkoreiba.com/wp-content/themes/blocksy-child/
-    - /bin/cp -R blocksy-child/. $DEPLOYPATH
+    - if [ -n "$DEPLOYPATH" ] && command -v rsync >/dev/null 2>&1; then rsync -a --delete blocksy-child/ "$DEPLOYPATH"; else /bin/cp -R blocksy-child/. "$DEPLOYPATH"; fi

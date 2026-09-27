@@ -1,45 +1,59 @@
-/* DK Design System — components */
+/* DK Design System — components.
+ *
+ * Layout comes from layout.css (dk-split / dk-grid / dk-stack); this file only
+ * styles what a component looks like. Block-style classes (.is-style-dk-*) are
+ * registered in functions.php. Selectors after "legacy:" comments keep the
+ * pre-refactor home page markup working and can be dropped once no page uses them.
+ */
 
-/* ---------- 5. Hero ---------- */
+/* ---------- Hero (section.dk-hero > .dk-split > [text stack, .dk-hero-media]) ---------- */
 .dk-page .dk-hero{padding-block:clamp(32px,6vw,88px) var(--dk-sp-section)}
-.dk-hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(32px,5vw,80px);align-items:center}
-.dk-hero-text{display:flex;flex-direction:column;gap:28px}
 .dk-page .dk-hero h1{font-size:clamp(52px,8.4vw,108px);font-weight:400;letter-spacing:-.035em;line-height:.95}
 .dk-page .dk-hero h1 em{font-style:italic;font-weight:300;color:var(--dk-accent)}
-.dk-page .dk-lead{font-size:clamp(18px,1.6vw,21px);line-height:1.6;max-width:34ch;color:var(--dk-ink-2)}
-.dk-page .dk-pill{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:10px 16px 10px 12px;border-radius:999px;background:var(--dk-accent-soft);color:var(--dk-ink);font:600 12.5px/1.3 var(--dk-font-body);letter-spacing:.1em;text-transform:uppercase}
-.dk-page .dk-pill::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--dk-accent);animation:dk-pulse 2.4s infinite}
-@keyframes dk-pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--dk-accent) 55%,transparent)}70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
-.dk-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding-top:28px;border-top:1px solid var(--dk-line);margin-top:4px}
-.dk-facts>.wp-block-group{display:flex;flex-direction:column;gap:8px}
-.dk-page .dk-facts p:not(.dk-label){font-size:16px;line-height:1.55}
 .dk-hero-media{position:relative;display:flex;flex-direction:column;align-items:flex-end}
-.dk-page figure.dk-wing{width:100%;aspect-ratio:1/1.08;overflow:hidden;border-radius:58% 42% 46% 54%/44% 50% 50% 56%;background:var(--dk-surface-2);animation:dk-breathe 16s ease-in-out infinite alternate}
-.dk-page figure.dk-wing img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.04)}
+.dk-page :is(figure.is-style-dk-blob,figure.dk-wing){width:100%;aspect-ratio:1/1.08;overflow:hidden;border-radius:58% 42% 46% 54%/44% 50% 50% 56%;background:var(--dk-surface-2);animation:dk-breathe 16s ease-in-out infinite alternate}
+.dk-page :is(figure.is-style-dk-blob,figure.dk-wing) img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.04)}
 @keyframes dk-breathe{0%{border-radius:58% 42% 46% 54%/44% 50% 50% 56%}50%{border-radius:48% 52% 56% 44%/52% 42% 58% 48%}100%{border-radius:54% 46% 40% 60%/46% 56% 44% 54%}}
-.dk-page .dk-quote{position:relative;margin-top:-72px!important;max-width:420px;align-self:flex-start;background:var(--dk-surface);border-radius:var(--dk-r-m);padding:28px 28px 26px 30px;box-shadow:var(--dk-shadow)}
-.dk-page .dk-quote::before{content:"";position:absolute;top:-18px;left:26px;width:40px;height:40px;background:var(--dk-accent);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M6 30c0-8 3-14 10-18l2 3c-4 3-6 6-6 9h5v8H6v-2zm16 0c0-8 3-14 10-18l2 3c-4 3-6 6-6 9h5v8H22v-2z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M6 30c0-8 3-14 10-18l2 3c-4 3-6 6-6 9h5v8H6v-2zm16 0c0-8 3-14 10-18l2 3c-4 3-6 6-6 9h5v8H22v-2z'/%3E%3C/svg%3E") center/contain no-repeat}
-.dk-page .dk-quote p{font:italic 400 clamp(19px,1.7vw,22px)/1.45 var(--dk-font-display);letter-spacing:-.005em;color:var(--dk-ink)}
-.dk-hero-text>*,.dk-hero-media{animation:dk-rise-in .9s cubic-bezier(.2,.7,.2,1) both}
-.dk-hero-text>*:nth-child(2){animation-delay:.08s}.dk-hero-text>*:nth-child(3){animation-delay:.16s}.dk-hero-text>*:nth-child(4){animation-delay:.24s}.dk-hero-text>*:nth-child(5){animation-delay:.3s}.dk-hero-text>*:nth-child(6){animation-delay:.36s}
+.dk-hero :is(.dk-split>:first-child,.dk-hero-text)>*,.dk-hero-media{animation:dk-rise-in .9s cubic-bezier(.2,.7,.2,1) both}
+.dk-hero :is(.dk-split>:first-child,.dk-hero-text)>*:nth-child(2){animation-delay:.08s}
+.dk-hero :is(.dk-split>:first-child,.dk-hero-text)>*:nth-child(3){animation-delay:.16s}
+.dk-hero :is(.dk-split>:first-child,.dk-hero-text)>*:nth-child(4){animation-delay:.24s}
+.dk-hero :is(.dk-split>:first-child,.dk-hero-text)>*:nth-child(5){animation-delay:.3s}
+.dk-hero :is(.dk-split>:first-child,.dk-hero-text)>*:nth-child(6){animation-delay:.36s}
 .dk-hero-media{animation-delay:.18s}
 @keyframes dk-rise-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @media (max-width:860px){
-  .dk-hero-grid{grid-template-columns:1fr}
   .dk-hero-media{order:-1;max-width:380px;width:100%;margin-inline:auto!important}
-  .dk-page .dk-quote{margin:-56px 16px 0!important}
-  .dk-facts{grid-template-columns:1fr}
 }
+/* legacy: */
+.dk-hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(32px,5vw,80px);align-items:center}
+.dk-hero-text{display:flex;flex-direction:column;gap:28px}
+@media (max-width:860px){.dk-hero-grid{grid-template-columns:1fr}}
 
-/* ---------- 6. Video ---------- */
+/* ---------- Quote card (core/group style) ---------- */
+.dk-page :is(.is-style-dk-quote-card,.dk-quote){position:relative;max-width:420px;background:var(--dk-surface);border-radius:var(--dk-r-m);padding:28px 28px 26px 30px;box-shadow:var(--dk-shadow)}
+.dk-page .dk-hero-media :is(.is-style-dk-quote-card,.dk-quote){margin-top:-72px!important;align-self:flex-start}
+.dk-page :is(.is-style-dk-quote-card,.dk-quote)::before{content:"";position:absolute;top:-18px;left:26px;width:40px;height:40px;background:var(--dk-accent);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M6 30c0-8 3-14 10-18l2 3c-4 3-6 6-6 9h5v8H6v-2zm16 0c0-8 3-14 10-18l2 3c-4 3-6 6-6 9h5v8H22v-2z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M6 30c0-8 3-14 10-18l2 3c-4 3-6 6-6 9h5v8H6v-2zm16 0c0-8 3-14 10-18l2 3c-4 3-6 6-6 9h5v8H22v-2z'/%3E%3C/svg%3E") center/contain no-repeat}
+.dk-page :is(.is-style-dk-quote-card,.dk-quote) p{font:italic 400 clamp(19px,1.7vw,22px)/1.45 var(--dk-font-display);letter-spacing:-.005em;color:var(--dk-ink)}
+@media (max-width:860px){.dk-page .dk-hero-media :is(.is-style-dk-quote-card,.dk-quote){margin:-56px 16px 0!important}}
+
+/* ---------- Facts row (label + value pairs under a rule) ---------- */
+.dk-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding-top:28px;border-top:1px solid var(--dk-line);margin-top:4px}
+.dk-facts>.wp-block-group{display:flex;flex-direction:column;gap:8px}
+.dk-page .dk-facts p:not(.dk-label,.is-style-dk-label){font-size:16px;line-height:1.55}
+@media (max-width:860px){.dk-facts{grid-template-columns:1fr}}
+
+/* ---------- Video embed ---------- */
+.dk-page :is(figure.is-style-dk-rounded,figure.dk-video){border-radius:var(--dk-r-l);overflow:hidden;background:var(--dk-surface-2);max-width:100%}
+.dk-page :is(figure.is-style-dk-rounded,figure.dk-video) .wp-block-embed__wrapper{border-radius:var(--dk-r-l);overflow:hidden}
+.dk-page :is(figure.is-style-dk-rounded,figure.dk-video) iframe{border:0}
+.dk-split.dk-align-end>h2{padding-bottom:12px}
+/* legacy: */
 .dk-video-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(24px,4vw,64px);align-items:end}
 .dk-video-grid>h2{padding-bottom:12px}
-.dk-page figure.dk-video{border-radius:var(--dk-r-l);overflow:hidden;background:var(--dk-surface-2);max-width:100%}
-.dk-page figure.dk-video .wp-block-embed__wrapper{border-radius:var(--dk-r-l);overflow:hidden}
-.dk-page figure.dk-video iframe{border:0}
 @media (max-width:860px){.dk-video-grid{grid-template-columns:1fr}}
 
-/* ---------- 7. Tabs (.dk-tabs > .dk-tabpanel[h3 + list]) ---------- */
+/* ---------- Tabs (.dk-tabs > .dk-tabpanel[h3 + list]; dk.js builds the tab list) ---------- */
 .dk-tabs{display:flex;flex-direction:column;gap:20px}
 .dk-tabs.is-ready{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:start}
 .dk-tabs.is-ready>.dk-tabpanel{grid-column:2;grid-row:1}
@@ -51,33 +65,38 @@
 .dk-tab[aria-selected="true"] svg{color:var(--dk-accent)}
 .dk-page .dk-tabpanel{background:var(--dk-surface);border-radius:var(--dk-r-l);padding:clamp(24px,4vw,48px);border:1px solid var(--dk-line)}
 .dk-tabs.is-ready>.dk-tabpanel:not([hidden]){animation:dk-fade .45s ease both}
-.dk-page .dk-tabpanel h3{font-size:clamp(26px,2.6vw,34px);margin-bottom:24px}
-.dk-page .dk-tabpanel ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
-.dk-page .dk-tabpanel li{position:relative;padding:14px 0 14px 30px;border-bottom:1px solid var(--dk-line);line-height:1.45;margin:0}
-.dk-page .dk-tabpanel li::before{content:"";position:absolute;left:4px;top:21px;width:10px;height:10px;border-radius:60% 40% 55% 45%;background:var(--dk-accent);opacity:.85}
+.dk-page .dk-tabpanel h3{margin-bottom:24px}
 @keyframes dk-fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media (max-width:860px){
   .dk-tabs.is-ready{grid-template-columns:1fr}
   .dk-tabs.is-ready>.dk-tabpanel{grid-column:1;grid-row:2}
-  .dk-tablist{position:static;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--dk-gutter)*-1);padding:2px var(--dk-gutter) 8px;scrollbar-width:none}
+  .dk-tablist{position:static;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--dk-gutter)*-1);padding:2px var(--dk-gutter) 8px;scroll-padding-inline:var(--dk-gutter);scrollbar-width:none}
   .dk-tablist::-webkit-scrollbar{display:none}
   .dk-tab{width:auto;flex:none;scroll-snap-align:start;border-color:var(--dk-line);border-radius:999px;padding:10px 16px;font-size:15px}
   .dk-tab svg{width:18px;height:18px}
-  .dk-page .dk-tabpanel ul{grid-template-columns:1fr}
 }
 
-/* ---------- 8. Values band ---------- */
-.dk-page .dk-band{background:var(--dk-lake);color:var(--dk-lake-ink);border-radius:clamp(24px,4vw,48px);margin-inline:clamp(8px,1.5vw,24px)!important;padding-block:var(--dk-sp-section)}
+/* ---------- Dot list (core/list style; default inside tab panels) ---------- */
+.dk-page :is(ul.is-style-dk-dots,.dk-tabpanel ul){list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+.dk-page :is(ul.is-style-dk-dots,.dk-tabpanel ul) li{position:relative;padding:14px 0 14px 30px;border-bottom:1px solid var(--dk-line);line-height:1.45;margin:0}
+.dk-page :is(ul.is-style-dk-dots,.dk-tabpanel ul) li::before{content:"";position:absolute;left:4px;top:21px;width:10px;height:10px;border-radius:60% 40% 55% 45%;background:var(--dk-accent);opacity:.85}
+@media (max-width:860px){.dk-page :is(ul.is-style-dk-dots,.dk-tabpanel ul){grid-template-columns:1fr}}
+
+/* ---------- Band (core/group style: dark full-bleed panel) ---------- */
+.dk-page :is(.is-style-dk-band,.dk-band){background:var(--dk-lake);color:var(--dk-lake-ink);border-radius:clamp(24px,4vw,48px);margin-inline:clamp(8px,1.5vw,24px)!important;padding-block:var(--dk-sp-section)}
+.dk-page :is(.is-style-dk-band,.dk-band) :is(h2,h3){color:var(--dk-lake-ink)}
+/* legacy: */
 .dk-band-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
 .dk-band-head{position:sticky;top:130px;display:flex;flex-direction:column;gap:28px;align-items:flex-start}
-.dk-page .dk-band h2{color:var(--dk-lake-ink)}
-.dk-page ul.dk-vals{list-style:none;padding:0;display:flex;flex-direction:column}
-.dk-page .dk-vals li{font:400 clamp(22px,2.3vw,30px)/1.35 var(--dk-font-display);letter-spacing:-.01em;padding-block:26px;margin:0;border-bottom:1px solid color-mix(in srgb,var(--dk-lake-ink) 16%,transparent)}
-.dk-page .dk-vals li:first-child{padding-top:0}
-.dk-page .dk-vals li:last-child{border-bottom:0}
 @media (max-width:860px){.dk-band-grid{grid-template-columns:1fr}.dk-band-head{position:static}}
 
-/* ---------- 9. Stats ---------- */
+/* ---------- Values list (core/list style: large serif lines) ---------- */
+.dk-page ul:is(.is-style-dk-values,.dk-vals){list-style:none;padding:0;display:flex;flex-direction:column}
+.dk-page ul:is(.is-style-dk-values,.dk-vals) li{font:400 clamp(22px,2.3vw,30px)/1.35 var(--dk-font-display);letter-spacing:-.01em;padding-block:26px;margin:0;border-bottom:1px solid color-mix(in srgb,currentColor 16%,transparent)}
+.dk-page ul:is(.is-style-dk-values,.dk-vals) li:first-child{padding-top:0}
+.dk-page ul:is(.is-style-dk-values,.dk-vals) li:last-child{border-bottom:0}
+
+/* ---------- Stats (.dk-stats > .dk-stat > p.dk-stat-num + p.dk-stat-label) ---------- */
 .dk-page .dk-stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-block:1px solid var(--dk-line)}
 .dk-stat{padding:32px 20px 30px;display:flex;flex-direction:column;gap:10px;border-left:1px solid var(--dk-line)}
 .dk-stat:first-child{border-left:0;padding-left:0}
@@ -87,49 +106,48 @@
 @media (max-width:1040px){.dk-page .dk-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.dk-stat:nth-child(4){border-left:0;padding-left:0}.dk-stat:nth-child(n+4){border-top:1px solid var(--dk-line)}}
 @media (max-width:560px){.dk-page .dk-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dk-stat{padding:24px 16px}.dk-stat:nth-child(odd){border-left:0;padding-left:0}.dk-stat:nth-child(4){border-left:1px solid var(--dk-line);padding-left:16px}.dk-stat:nth-child(n+3){border-top:1px solid var(--dk-line)}}
 
-/* ---------- 10. Timeline (ordered list .dk-tl; <em> = details) ---------- */
+/* ---------- Timeline (core/list ordered, style dk-timeline; <em> = details, li.dk-now = current) ---------- */
+.dk-page ol:is(.is-style-dk-timeline,.dk-tl){list-style:none;padding:0;position:relative}
+.dk-page ol:is(.is-style-dk-timeline,.dk-tl)::before{content:"";position:absolute;left:6px;top:14px;bottom:14px;width:1px;background:var(--dk-line)}
+.dk-page ol:is(.is-style-dk-timeline,.dk-tl) li{position:relative;padding:16px 0 16px 36px;margin:0;font-size:17px;line-height:1.5}
+.dk-page ol:is(.is-style-dk-timeline,.dk-tl) li::before{content:"";position:absolute;left:0;top:23px;width:13px;height:13px;border-radius:50%;background:var(--dk-paper);border:2px solid var(--dk-accent);box-sizing:border-box}
+.dk-page ol:is(.is-style-dk-timeline,.dk-tl) li.dk-now::before{background:var(--dk-accent)}
+.dk-page ol:is(.is-style-dk-timeline,.dk-tl) li em{display:block;font-style:normal;font-size:14px;color:var(--dk-ink-2);margin-top:4px}
+/* legacy: */
 .dk-page .dk-edu{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(24px,5vw,80px);margin-top:clamp(64px,8vw,112px)!important}
 .dk-edu-groups{display:flex;flex-direction:column;gap:44px}
 .dk-edu-group{display:flex;flex-direction:column;gap:8px}
-.dk-page ol.dk-tl{list-style:none;padding:0;position:relative}
-.dk-page ol.dk-tl::before{content:"";position:absolute;left:6px;top:14px;bottom:14px;width:1px;background:var(--dk-line)}
-.dk-page .dk-tl li{position:relative;padding:16px 0 16px 36px;margin:0;font-size:17px;line-height:1.5}
-.dk-page .dk-tl li::before{content:"";position:absolute;left:0;top:23px;width:13px;height:13px;border-radius:50%;background:var(--dk-paper);border:2px solid var(--dk-accent);box-sizing:border-box}
-.dk-page .dk-tl li.dk-now::before{background:var(--dk-accent)}
-.dk-page .dk-tl li em{display:block;font-style:normal;font-size:14px;color:var(--dk-ink-2);margin-top:4px}
 @media (max-width:860px){.dk-page .dk-edu{grid-template-columns:1fr}}
 
-/* ---------- 11. Price cards ---------- */
+/* ---------- Card (core/group styles: dk-card, dk-card-accent) ---------- */
+.dk-page :is(.is-style-dk-card,.is-style-dk-card-accent,.dk-card){display:flex;flex-direction:column;gap:22px;padding:clamp(24px,3.4vw,44px);border-radius:var(--dk-r-l);background:var(--dk-surface);border:1px solid var(--dk-line)}
+.dk-page :is(.is-style-dk-card-accent,.dk-card.dk-featured){border-color:color-mix(in srgb,var(--dk-accent) 45%,var(--dk-line));box-shadow:var(--dk-shadow)}
+.dk-page :is(.is-style-dk-card,.is-style-dk-card-accent,.dk-card) h3{font-size:clamp(26px,2.4vw,32px)}
+.dk-page :is(.is-style-dk-card,.is-style-dk-card-accent,.dk-card)>.wp-block-buttons{margin-top:auto!important}
+/* legacy: */
 .dk-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.dk-page .dk-card{display:flex;flex-direction:column;gap:22px;padding:clamp(24px,3.4vw,44px);border-radius:var(--dk-r-l);background:var(--dk-surface);border:1px solid var(--dk-line)}
-.dk-page .dk-card.dk-featured{border-color:color-mix(in srgb,var(--dk-accent) 45%,var(--dk-line));box-shadow:var(--dk-shadow)}
-.dk-page .dk-card h3{font-size:clamp(26px,2.4vw,32px)}
+@media (max-width:860px){.dk-cards{grid-template-columns:1fr}}
+
+/* ---------- Price block (inside a card) ---------- */
 .dk-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 14px}
 .dk-page .dk-price-num{font:400 clamp(52px,5vw,68px)/1 var(--dk-font-display);letter-spacing:-.03em;font-variant-numeric:lining-nums;color:var(--dk-ink)}
 .dk-page .dk-price-alt{color:var(--dk-ink-2);font-size:16px}
-.dk-page .dk-tag{align-self:flex-start;padding:6px 12px;border-radius:999px;background:var(--dk-accent-soft);font-size:14px;font-weight:500}
 .dk-page .dk-sub{font-weight:500}
 .dk-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:18px 0;border-block:1px solid var(--dk-line)}
 .dk-meta>.wp-block-group{display:flex;flex-direction:column;gap:4px}
 .dk-page .dk-meta-k{color:var(--dk-ink-2);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
 .dk-page .dk-meta-v{font-weight:500;font-size:15px}
-.dk-page .dk-desc{color:var(--dk-ink-2);line-height:1.6}
-.dk-page .dk-card .wp-block-buttons{margin-top:auto!important}
-@media (max-width:860px){.dk-cards{grid-template-columns:1fr}}
 
-/* ---------- 12. Scroll reveal (progressive) ---------- */
+/* ---------- Scroll reveal (progressive) ---------- */
 @supports (animation-timeline:view()){
   .dk-reveal{animation:dk-reveal linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
-  .dk-vals li{animation:dk-lit linear both;animation-timeline:view();animation-range:entry 10% cover 45%}
+  ul:is(.is-style-dk-values,.dk-vals) li{animation:dk-lit linear both;animation-timeline:view();animation-range:entry 10% cover 45%}
 }
 @keyframes dk-reveal{from{opacity:.15;transform:translateY(28px)}to{opacity:1;transform:none}}
 @keyframes dk-lit{from{opacity:.35}to{opacity:1}}
 
-/* ---------- 15. Motion preference ---------- */
+/* ---------- Motion preference ---------- */
 @media (prefers-reduced-motion:reduce){
   .dk-page *,.dk-page *::before,.dk-page *::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
 }
-
-/* tabs: mobile scroll padding */
-@media (max-width:860px){.dk-tablist{scroll-padding-inline:var(--dk-gutter)}}

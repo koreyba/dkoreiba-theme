@@ -1,0 +1,45 @@
+/* DK Design System — layout primitives (page-agnostic).
+ *
+ * Compose sections from these instead of adding a grid class per page:
+ *   .dk-wrap                     centred container (max width + gutters) — base.css
+ *   .dk-section                  vertical section padding — base.css
+ *   .dk-stack / .dk-stack-l      vertical flow with gap
+ *   .dk-split  + .dk-split-4-8 | -5-7 | -6-5 | -1-1    two columns, collapse ≤860px
+ *   .dk-grid   + .dk-grid-2 | -3 | -6                  equal columns, responsive
+ *   .dk-align-center | -end       cross-axis alignment for split/grid
+ *   .dk-sticky                    sticky column (desktop only)
+ */
+
+/* ---------- Stack ---------- */
+.dk-stack{display:flex;flex-direction:column;gap:14px}
+.dk-stack-l{display:flex;flex-direction:column;gap:28px}
+.dk-stack-xl{display:flex;flex-direction:column;gap:44px}
+.dk-stack-s{display:flex;flex-direction:column;gap:8px}
+.dk-page :is(.dk-stack,.dk-stack-s,.dk-stack-l,.dk-stack-xl).dk-start{align-items:flex-start}
+
+/* ---------- Split (two columns) ---------- */
+.dk-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:start}
+.dk-split.dk-split-4-8{grid-template-columns:minmax(0,4fr) minmax(0,8fr)}
+.dk-split.dk-split-5-7{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px)}
+.dk-split.dk-split-6-5{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)}
+.dk-split.dk-split-300{grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(20px,4vw,56px)}
+
+/* ---------- Grid (equal columns) ---------- */
+.dk-grid{display:grid;grid-template-columns:repeat(var(--dk-cols,2),minmax(0,1fr));gap:20px}
+.dk-grid.dk-grid-2{--dk-cols:2}
+.dk-grid.dk-grid-3{--dk-cols:3}
+.dk-grid.dk-grid-6{--dk-cols:6}
+
+/* ---------- Modifiers ---------- */
+:is(.dk-split,.dk-grid).dk-align-center{align-items:center}
+:is(.dk-split,.dk-grid).dk-align-end{align-items:end}
+.dk-sticky{position:sticky;top:130px}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1040px){.dk-grid.dk-grid-6{--dk-cols:3}}
+@media (max-width:860px){
+  .dk-split,.dk-split[class*="dk-split-"]{grid-template-columns:minmax(0,1fr)}
+  .dk-grid.dk-grid-2,.dk-grid.dk-grid-3{--dk-cols:1}
+  .dk-sticky{position:static}
+}
+@media (max-width:560px){.dk-grid.dk-grid-6{--dk-cols:2}}

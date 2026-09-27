@@ -2,8 +2,10 @@
 /**
  * Blocksy Child — DK Design System loader.
  *
- * CSS:  assets/css/{tokens,base,components,vendors}.css — front end and block editor.
- * JS:   assets/js/theme-init.js (inline in <head>), assets/js/dk.js (footer).
+ * CSS:      assets/css/{tokens,base,layout,components,vendors}.css — front end and block editor.
+ * Styles:   core block styles (is-style-dk-*) — registered below, styled in CSS.
+ * Patterns: patterns/*.php — auto-registered by WordPress, category "dk".
+ * JS:       assets/js/theme-init.js (inline in <head>), assets/js/dk.js (footer).
  */
 
 if ( ! defined( 'WP_DEBUG' ) ) {
@@ -23,7 +25,7 @@ function dk_ds_register_styles() {
 	$dir = get_stylesheet_directory_uri();
 	wp_register_style( 'dk-fonts', DK_DS_FONTS, array(), null );
 	$deps = array( 'dk-fonts' );
-	foreach ( array( 'tokens', 'base', 'components', 'vendors' ) as $name ) {
+	foreach ( array( 'tokens', 'base', 'layout', 'components', 'vendors' ) as $name ) {
 		$rel = "assets/css/{$name}.css";
 		wp_register_style( "dk-{$name}", "{$dir}/{$rel}", $deps, dk_ds_ver( $rel ) );
 		$deps = array( "dk-{$name}" );
@@ -54,3 +56,48 @@ add_action( 'wp_head', function () {
 		echo "<script id=\"dk-theme-init\">\n" . file_get_contents( $file ) . "</script>\n"; // phpcs:ignore WordPress.Security.EscapeOutput
 	}
 }, 1 );
+
+/** Block styles: the design-system look of core blocks, picked in the editor's Styles panel. */
+add_action( 'init', function () {
+	$styles = array(
+		'core/paragraph' => array(
+			'dk-eyebrow' => 'DK: надзаголовок',
+			'dk-label'   => 'DK: подпись',
+			'dk-lead'    => 'DK: лид',
+			'dk-muted'   => 'DK: второстепенный',
+			'dk-pill'    => 'DK: плашка',
+			'dk-tag'     => 'DK: тег',
+			'dk-link'    => 'DK: акцентные ссылки',
+		),
+		'core/heading'   => array(
+			'dk-display' => 'DK: крупный',
+		),
+		'core/group'     => array(
+			'dk-card'        => 'DK: карточка',
+			'dk-card-accent' => 'DK: карточка (акцент)',
+			'dk-band'        => 'DK: тёмная лента',
+			'dk-quote-card'  => 'DK: цитата',
+		),
+		'core/list'      => array(
+			'dk-dots'     => 'DK: список с точками',
+			'dk-values'   => 'DK: крупные строки',
+			'dk-timeline' => 'DK: хронология',
+		),
+		'core/button'    => array(
+			'dk-arrow' => 'DK: со стрелкой',
+		),
+		'core/image'     => array(
+			'dk-blob' => 'DK: живая форма',
+		),
+		'core/embed'     => array(
+			'dk-rounded' => 'DK: скруглённый',
+		),
+	);
+	foreach ( $styles as $block => $list ) {
+		foreach ( $list as $name => $label ) {
+			register_block_style( $block, array( 'name' => $name, 'label' => $label ) );
+		}
+	}
+
+	register_block_pattern_category( 'dk', array( 'label' => 'DK: секции' ) );
+} );
