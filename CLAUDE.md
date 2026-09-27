@@ -29,6 +29,11 @@ we can do in the theme (GreenShift and WPCode design snippets are deactivated).
 3. wp-admin → Performance (W3 Total Cache) → **Purge All Caches**. W3TC minifies and
    inlines CSS/JS, so without a purge the old version is served.
 4. Verify (below). Check the deployed version: `/wp-content/themes/blocksy-child/style.css`.
+5. `tools/check.sh --live` — checks that the W3TC minified JS on the live home page is not
+   empty. Right after a purge W3TC can serve 0-byte minify files for a moment and
+   browsers keep them for an hour (cache-control max-age=3600) → all site JS dead
+   (tabs, theme button, video). If empty: W3TC → Performance → Minify cache flush, re-check.
+   Test in the browser pane with a fresh query string — it may hold the empty files too.
 
 Run `tools/check.sh` before pushing (PHP syntax — an error takes staging down; JS syntax;
 CSS brace balance — a stray `}` silently drops the next rule).
