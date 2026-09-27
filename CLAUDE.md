@@ -70,6 +70,16 @@ Rules for new work:
   (content is in the DB, not in git) — see "Verifying on staging".
 - Colours/fonts only via `--dk-*` tokens.
 
+## Performance plugins (staging)
+- Two optimisers are active: W3 Total Cache (page cache, JS/CSS minify, lazyload) and
+  Debloat (CSS optimise/minify, remove unused block-library CSS, Google Fonts inline).
+- Debloat "Inline Optimized CSS" is **off** (changed 2026-09-27): it inlined ~340 KB
+  of CSS into every page (HTML 396 KB → 147 KB on home). Keep CSS as cacheable files.
+- Remaining HTML weight: global-styles (~25 KB, WP/Blocksy presets), footer SVG
+  ornament (~20 KB, widget block-27), GDPR cookie plugin inline CSS (~14 KB).
+- Layout fingerprints must be taken with animations disabled
+  (`*{animation:none!important}`) — .dk-hero and .dk-reveal use transforms.
+
 ## Verifying on staging
 - HTML contains `dk-tokens-css`, `dk-layout-css`, `dk-components-css`, `dk-theme-init`;
   dk.js is inside a W3TC minify bundle (`/wp-content/cache/minify/*.js`).
