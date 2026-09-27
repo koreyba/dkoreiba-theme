@@ -13,3 +13,4 @@ Push to staging from a logged-in wp-admin tab (repo is public):
 |---|---|
 | about.html | about (id 12) |
 | contact.html | contact (id 16) |
+| footer.json | footer widgets (REST /wp/v2/widgets) |

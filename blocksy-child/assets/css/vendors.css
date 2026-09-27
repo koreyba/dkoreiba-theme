@@ -33,18 +33,23 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 #offcanvas .mobile-menu a{font:400 22px/1.3 var(--dk-font-display)!important}
 #offcanvas .ct-toggle-close{--theme-icon-color:var(--dk-ink)!important}
 
-/* ---------- 14. Footer (Blocksy + GreenShift widgets) ---------- */
+/* ---------- 14. Footer (Blocksy + core-block widgets, see content/footer.json) ---------- */
 #footer{background:var(--dk-paper)!important;border-top:1px solid var(--dk-line)}
 #footer [data-row]{background:transparent!important;border:0!important}
 #footer [data-row="middle"]{padding-block:32px 8px}
-#footer h5.gspb_heading{margin:0 0 16px;font:600 12px/1.2 var(--dk-font-body)!important;letter-spacing:.14em;text-transform:uppercase;color:var(--dk-ink-2)!important}
-#footer h3.gspb_heading{font:italic 400 22px/1.45 var(--dk-font-display)!important;color:var(--dk-ink)!important;letter-spacing:0;text-transform:none;margin:0}
-#footer .gspb_text{font:15px/1.4 var(--dk-font-body)!important;color:var(--dk-ink-2)!important;margin-top:12px}
-#footer .gspb_iconsList__item{color:var(--dk-ink)!important;font:400 16px/1.5 var(--dk-font-body)!important}
-#footer .gspb_iconsList__item svg{fill:var(--dk-accent)!important;color:var(--dk-accent)!important}
-#footer .gspb_iconsList__item a{color:var(--dk-ink)!important;text-decoration:none}
-#footer .gspb_iconsList__item a:hover{color:var(--dk-accent)!important}
-#footer .gspb_iconBox svg{fill:var(--dk-line)!important}
+#footer .is-style-dk-label{margin:0 0 16px;font:600 12px/1.2 var(--dk-font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--dk-ink-2)}
+#footer ul.is-style-dk-links{list-style:none;margin:0;padding:0}
+#footer ul.is-style-dk-links li{margin:0;border-bottom:1px solid var(--dk-line)}
+#footer ul.is-style-dk-links li:last-child{border-bottom:0}
+#footer ul.is-style-dk-links a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 0;font:400 16px/1.4 var(--dk-font-body);color:var(--dk-ink);text-decoration:none;transition:color .2s}
+#footer ul.is-style-dk-links a::after{content:"↗";color:var(--dk-accent);font-size:14px}
+#footer ul.is-style-dk-links a:hover{color:var(--dk-accent)}
+#footer .dk-footer-quote{margin:0;padding:0 clamp(0px,3vw,50px);border:0;text-align:center}
+#footer .dk-footer-quote p{margin:0;font:italic 400 22px/1.45 var(--dk-font-display);color:var(--dk-ink)}
+#footer .dk-footer-quote cite{display:block;margin-top:12px;font:normal 400 15px/1.4 var(--dk-font-body);color:var(--dk-ink-2)}
+#footer .dk-footer-mark{display:flex;justify-content:center;margin-top:16px}
+#footer .dk-footer-mark svg{width:155px;height:auto;fill:var(--dk-line)}
+#footer .dk-footer-mark svg *{fill:inherit}
 #footer .ct-socials-block{--theme-icon-color:var(--dk-ink-2)!important;--theme-icon-hover-color:var(--dk-accent)!important;--background-color:transparent!important;--background-hover-color:var(--dk-accent-soft)!important}
 #footer .ct-social-box a .ct-icon-container{border:1px solid var(--dk-line)}
 #footer,#footer .ct-footer-copyright{color:var(--dk-ink-2)!important;font-family:var(--dk-font-body)}
@@ -55,7 +60,6 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 #header .header-menu-1 .menu>li.current-menu-item.menu-item-home>a{background:var(--dk-surface-2)}
 #header [data-device="mobile"] [data-row]>.ct-container{grid-template-columns:auto 1fr auto!important;column-gap:8px}
 #header [data-device="mobile"] [data-column="middle"]{justify-self:end}
-#footer .gspb_iconsList__item svg path{fill:var(--dk-accent)!important}
 #header [data-device="mobile"] .ct-header-text,#header [data-device="mobile"] [data-column="middle"] [data-items]>*{margin-inline:0!important;padding-inline:0!important}
 #header [data-device="mobile"] .trp-language-item-name{text-overflow:clip}
 #header [data-device="mobile"] .trp-shortcode-switcher__wrapper{--flag-size:16px!important}
