@@ -10,8 +10,8 @@
 ?>
 <!-- wp:group {"align":"full","className":"dk-page","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull dk-page"><!-- wp:group {"className":"dk-section dk-flush-top","layout":{"type":"default"}} -->
-<div class="wp-block-group dk-section dk-flush-top"><!-- wp:group {"className":"dk-wrap dk-split dk-split-4-8 dk-align-end dk-reveal","layout":{"type":"default"}} -->
-<div class="wp-block-group dk-wrap dk-split dk-split-4-8 dk-align-end dk-reveal"><!-- wp:heading {"className":"is-style-dk-display"} -->
+<div class="wp-block-group dk-section dk-flush-top"><!-- wp:group {"className":"dk-wrap dk-split dk-split-4-8 dk-align-end dk-gap-m dk-reveal","layout":{"type":"default"}} -->
+<div class="wp-block-group dk-wrap dk-split dk-split-4-8 dk-align-end dk-gap-m dk-reveal"><!-- wp:heading {"className":"is-style-dk-display"} -->
 <h2 class="wp-block-heading is-style-dk-display">Видео приветствие:</h2>
 <!-- /wp:heading -->
 

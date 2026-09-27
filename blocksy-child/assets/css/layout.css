@@ -4,9 +4,10 @@
  *   .dk-wrap                     centred container (max width + gutters) — base.css
  *   .dk-section                  vertical section padding — base.css
  *   .dk-stack / .dk-stack-l      vertical flow with gap
- *   .dk-split  + .dk-split-4-8 | -5-7 | -6-5 | -1-1    two columns, collapse ≤860px
+ *   .dk-split  (1:1) + .dk-split-4-8 | -5-7 | -6-5 | -300   two columns, collapse ≤860px
  *   .dk-grid   + .dk-grid-2 | -3 | -6                  equal columns, responsive
  *   .dk-align-center | -end       cross-axis alignment for split/grid
+ *   .dk-gap-m                     tighter column gap for split/grid
  *   .dk-sticky                    sticky column (desktop only)
  */
 
@@ -33,6 +34,7 @@
 /* ---------- Modifiers ---------- */
 :is(.dk-split,.dk-grid).dk-align-center{align-items:center}
 :is(.dk-split,.dk-grid).dk-align-end{align-items:end}
+:is(.dk-split,.dk-grid).dk-gap-m{gap:clamp(24px,4vw,64px)}
 .dk-sticky{position:sticky;top:130px}
 
 /* ---------- Responsive ---------- */
