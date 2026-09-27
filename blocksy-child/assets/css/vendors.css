@@ -124,6 +124,9 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 
 #moove_gdpr_cookie_modal .moove-gdpr-modal-content{border:1px solid var(--dk-line)!important;border-radius:var(--dk-r-l)!important;background:var(--dk-surface)!important;color:var(--dk-ink)!important;font-family:var(--dk-font-body)!important;overflow:hidden}
 #moove_gdpr_cookie_modal .moove-gdpr-modal-left-content{background:var(--dk-surface-2)!important}
+#moove_gdpr_cookie_modal .moove-gdpr-modal-right-content{background:var(--dk-surface)!important}
+#moove_gdpr_cookie_modal #moove-gdpr-menu .moove-gdpr-tab-nav{border:1px solid transparent!important}
+#moove_gdpr_cookie_modal #moove-gdpr-menu li.menu-item-selected .moove-gdpr-tab-nav{border-color:var(--dk-line)!important}
 #moove_gdpr_cookie_modal .moove-gdpr-company-logo-holder,#moove_gdpr_cookie_modal .moove-gdpr-branding-cnt{display:none!important}
 #moove_gdpr_cookie_modal #moove-gdpr-menu .moove-gdpr-tab-nav{border-radius:var(--dk-r-s)!important;background:transparent!important;color:var(--dk-ink-2)!important}
 #moove_gdpr_cookie_modal #moove-gdpr-menu li.menu-item-selected .moove-gdpr-tab-nav,#moove_gdpr_cookie_modal #moove-gdpr-menu .moove-gdpr-tab-nav:hover{background:var(--dk-surface)!important;color:var(--dk-ink)!important}
