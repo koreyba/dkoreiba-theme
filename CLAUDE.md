@@ -90,8 +90,14 @@ Rules for new work:
   text (splitting a block into paragraphs) loses the translation for that string —
   about page UA/EN are partly untranslated after the migration. When migrating a
   page, either keep the original text blocks 1:1 or re-translate in TranslatePress.
-- Pages still on GreenShift: contact (16),
+- Contact (id 16) rebuilt on DK from `content/contact.html` (Fluent Forms form 3
+  kept, styled in vendors.css); old version: revision 1244.
+- Header: theme button = `[dk_theme_toggle]` shortcode in the Blocksy "Text" element
+  (`[language-switcher][dk_theme_toggle]`), CTA = Blocksy "Button" element; dk.js no
+  longer injects markup. Customizer snapshot: `config/theme-mods.stage.json`.
+- Translations are knowingly out of date after migrations — to be redone later.
+- Pages still on GreenShift:
   calendar (1316), drafts 970/1250/1251/1302/1411.
-- Open: header buttons are injected by dk.js — replace with Blocksy header elements;
-  `theme.json` for tokens in the editor palette (check Blocksy compatibility first);
-  export Blocksy Customizer settings into the repo.
+- Open: `theme.json` for tokens in the editor palette (check Blocksy compatibility
+  first); Blocksy palette (`colorPalette`) is overridden by tokens.css, not by settings;
+  footer still uses GreenShift widgets (styled in vendors.css).
