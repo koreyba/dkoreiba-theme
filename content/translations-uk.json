@@ -1,5 +1,5 @@
 {
- "_note": "RU → UK pairs for TranslatePress (dictionary ru_ru_uk). Push with POST /wp-json/dk/v1/translations {pairs:[...]}. Keys are the exact RU strings TranslatePress extracts (text split at inline links/emphasis).",
+ "_note": "RU → UK pairs for TranslatePress (dictionary ru_ru_uk). Push with POST /wp-json/dk/v1/translations {pairs:[...]}. Keys are the exact RU strings TranslatePress extracts (text split at inline links/emphasis). Dashes inside some strings are stored HTML-encoded (&#8212;) — match the dictionary exactly.",
  "pairs": [
   {
    "original": "Русский",
@@ -78,7 +78,7 @@
    "translated": "Магістратура з психології"
   },
   {
-   "original": "(Сумской государственный институт 2023 — 2025 г.)",
+   "original": "(Сумской государственный институт 2023 &#8212; 2025 г.)",
    "translated": "(Сумський державний інститут 2023 — 2025 рр.)"
   },
   {
@@ -114,7 +114,7 @@
    "translated": "Програмування"
   },
   {
-   "original": "(Киевский авиационный университет 2009 — 2015 г.)",
+   "original": "(Киевский авиационный университет 2009 &#8212; 2015 г.)",
    "translated": "(Київський авіаційний університет 2009 — 2015 рр.)"
   },
   {
