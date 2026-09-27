@@ -15,6 +15,12 @@ we can do in the theme (GreenShift and WPCode design snippets are deactivated).
 - Push to Live copies files + DB tables `posts`, `postmeta`, `options`, `terms*`.
   Never include Fluent Forms, PsyBooker, `comments`, `users` tables.
   Before: JetBackup backup. After: W3 Total Cache → Purge All Caches on production.
+- Cloudflare (zone dkoreiba.com, Free) caches HTML at the edge: Cache Rule "DK: cache HTML pages 1h"
+  (skips /wp-admin, /wp-login.php, /wp-json, calendar, logged-in/comment/postpass cookies,
+  ?s= / ?p= / preview; query string ignored in the cache key) + Smart Tiered Cache on.
+  After Push to Live or any content change: Cloudflare → Caching → Purge Everything too,
+  otherwise visitors see the old page for up to 1 h. Reason (2026-09-27): hosting has a
+  2-core CPU limit; bursts of uncached requests queued for 15–25 s / Cloudflare 522.
 - Push to Live overwrites production content with staging content — anything edited
   on production after staging was cloned is lost.
 
