@@ -144,7 +144,7 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 a.dk-lang__item{opacity:.55}
 a.dk-lang__item:hover,a.dk-lang__item:focus-visible{opacity:1;background:var(--dk-surface-2)}
 /* TranslatePress menu item replaced by [dk_lang_switch] */
-:is(#header,#offcanvas) .menu .trp-menu-ls-item{display:none!important}
+#header .trp-menu-ls-item,#offcanvas .trp-menu-ls-item{display:none!important}
 /* Blocksy centres the menu between equal side columns and moves overflowing items into
    "More" — keep the side columns narrow enough for all six items (see CLAUDE.md) */
 #header [data-device="desktop"] .header-menu-1 .menu{column-gap:2px}
