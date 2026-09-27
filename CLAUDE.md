@@ -88,6 +88,10 @@ Rules for new work:
   classes appear only after JS runs must live in blocksy-child or an excluded plugin.
   Rollback: inline off, remove-unused theme/plugins off, Exclude Styles =
   themes/blocksy-child/assets/css, themes/blocksy/static, uploads/blocksy/css.
+- Fonts: only used faces are loaded (DK_DS_FONTS in functions.php): Literata 400/500/400i
+  at fixed opsz 36, Onest 400/500/600 — 161 KB instead of 407 KB. A new weight/style in
+  CSS must be added to that URL, otherwise the browser fakes it.
+- Home page first visit ≈ 285 KB / 27 requests (fonts 161, images ~51, HTML 48, JS 21).
 - GDPR Cookie Compliance and Site Kit are deactivated on staging by the owner (for now).
 - Lighthouse, home, mobile (local, cached page, 3 runs): 94/99/99, FCP 1.2 s, LCP 2.0 s.
   What mattered: YouTube facade (render_block core/embed → .dk-yt, iframe on click, no autoplay;
