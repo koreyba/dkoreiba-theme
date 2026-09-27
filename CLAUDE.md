@@ -124,16 +124,21 @@ Rules for new work:
   `/wp-content/themes/blocksy-child/patterns/styles.php`) and update page 1419.
 - About (id 12) rebuilt on DK from `content/about.html`; old GreenShift version:
   revision 1326.
-- **Translations (TranslatePress, /ua/, /en/) match strings exactly.** Re-segmenting
-  text (splitting a block into paragraphs) loses the translation for that string —
-  about page UA/EN are partly untranslated after the migration. When migrating a
-  page, either keep the original text blocks 1:1 or re-translate in TranslatePress.
+- **Translations (TranslatePress, uk only at /ua/) match strings exactly.** TP splits text
+  at inline links/emphasis and stores some entities encoded (`&#8212;`, `&hellip;`).
+  Source of truth: `content/translations-uk.json` (RU original → UK, written by Claude, no
+  machine translation). To apply: fetch the JSON from raw GitHub in a logged-in stage tab and
+  POST `{pairs}` to `/wp-json/dk/v1/translations` (admin; updates by exact original, inserts
+  missing rows, status 2). GET the same endpoint to look up the exact stored originals first.
+  After editing page text, re-collect the changed strings and add pairs. Scope: home, about,
+  contact, calendar, posts 888/886, header/footer/sidebar; blog posts stay untranslated.
+  SiteSEO's `<title>`/meta are not translated by TP (prod too) — functions.php buffers
+  `wp_head` on uk and swaps them from the same dictionary, so add title/meta strings as pairs.
 - Contact (id 16) rebuilt on DK from `content/contact.html` (Fluent Forms form 3
   kept, styled in vendors.css); old version: revision 1244.
 - Header: theme button = `[dk_theme_toggle]` shortcode in the Blocksy "Text" element
   (`[dk_lang_switch][dk_theme_toggle]`; `[dk_lang_switch]` = own flags-only switcher on `trp_custom_language_switcher()`, TranslatePress menu item hidden via CSS), CTA = Blocksy "Button" element; dk.js no
   longer injects markup. Customizer snapshot: `config/theme-mods.stage.json`.
-- Translations are knowingly out of date after migrations — to be redone later.
 - Calendar (id 1316) rebuilt from `content/calendar.html` (PsyBooker `[wppa_booking]`
   in a 520px wrap); old version: revision 1317. PsyBooker's timezone select stays
   white in dark mode (not styled yet).
