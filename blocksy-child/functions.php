@@ -261,3 +261,82 @@ add_filter( 'render_block_core/embed', function ( $html, $block ) {
 	$out = preg_replace( '~(<div class="wp-block-embed__wrapper">)[\s\S]*?(</div>)~', '$1' . $facade . '$2', $html, 1 );
 	return $out ?: $html;
 }, 10, 2 );
+
+/**
+ * /wp-json/dk/v1/translations — TranslatePress dictionary (ru → uk), admin only.
+ * GET  ?status=0|1|2 (optional) → rows {id, original, translated, status}; also returns the table columns.
+ * POST {"pairs":[{"original":"…","translated":"…"}]} → upsert as human translations (status 2).
+ * Source of truth for our translations: content/translations-uk.json in the theme repo.
+ */
+function dk_trp_table() {
+	global $wpdb;
+	if ( class_exists( 'TRP_Translate_Press' ) ) {
+		$trp   = TRP_Translate_Press::get_trp_instance();
+		$query = $trp ? $trp->get_component( 'query' ) : null;
+		if ( $query && method_exists( $query, 'get_table_name' ) ) {
+			return $query->get_table_name( 'uk' );
+		}
+	}
+	return $wpdb->prefix . 'trp_dictionary_ru_ru_uk';
+}
+
+add_action( 'rest_api_init', function () {
+	$can = function () {
+		return current_user_can( 'manage_options' );
+	};
+	register_rest_route( 'dk/v1', '/translations', array(
+		array(
+			'methods'             => 'GET',
+			'permission_callback' => $can,
+			'callback'            => function ( WP_REST_Request $req ) {
+				global $wpdb;
+				$table = dk_trp_table();
+				$cols  = $wpdb->get_col( "SHOW COLUMNS FROM `{$table}`" ); // phpcs:ignore WordPress.DB
+				$sql   = "SELECT id, original, translated, status FROM `{$table}`";
+				$status = $req->get_param( 'status' );
+				if ( null !== $status && '' !== $status ) {
+					$sql = $wpdb->prepare( $sql . ' WHERE status = %d', (int) $status ); // phpcs:ignore WordPress.DB
+				}
+				return rest_ensure_response( array(
+					'table'   => $table,
+					'columns' => $cols,
+					'rows'    => $wpdb->get_results( $sql, ARRAY_A ), // phpcs:ignore WordPress.DB
+				) );
+			},
+		),
+		array(
+			'methods'             => 'POST',
+			'permission_callback' => $can,
+			'callback'            => function ( WP_REST_Request $req ) {
+				global $wpdb;
+				$table = dk_trp_table();
+				$pairs = (array) $req->get_param( 'pairs' );
+				$trp   = class_exists( 'TRP_Translate_Press' ) ? TRP_Translate_Press::get_trp_instance() : null;
+				$query = $trp ? $trp->get_component( 'query' ) : null;
+				$res   = array( 'updated' => 0, 'inserted' => 0, 'missing' => array() );
+				foreach ( $pairs as $pair ) {
+					$original   = isset( $pair['original'] ) ? (string) $pair['original'] : '';
+					$translated = isset( $pair['translated'] ) ? (string) $pair['translated'] : '';
+					if ( '' === $original || '' === $translated ) {
+						continue;
+					}
+					$id = $wpdb->get_var( $wpdb->prepare( "SELECT id FROM `{$table}` WHERE BINARY original = %s LIMIT 1", $original ) ); // phpcs:ignore WordPress.DB
+					if ( ! $id && $query && method_exists( $query, 'insert_strings' ) ) {
+						$query->insert_strings( array( $original ), 'uk', 0 );
+						$id = $wpdb->get_var( $wpdb->prepare( "SELECT id FROM `{$table}` WHERE BINARY original = %s LIMIT 1", $original ) ); // phpcs:ignore WordPress.DB
+						if ( $id ) {
+							$res['inserted']++;
+						}
+					}
+					if ( ! $id ) {
+						$res['missing'][] = $original;
+						continue;
+					}
+					$wpdb->update( $table, array( 'translated' => $translated, 'status' => 2 ), array( 'id' => (int) $id ), array( '%s', '%d' ), array( '%d' ) );
+					$res['updated']++;
+				}
+				return rest_ensure_response( $res );
+			},
+		),
+	) );
+} );
