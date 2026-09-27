@@ -79,3 +79,19 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 .dk-page .fluentform .ff-btn-submit:hover{background:var(--dk-accent-hover)!important;transform:translateY(-1px)}
 .dk-page .fluentform .error,.dk-page .fluentform .text-danger{color:var(--dk-accent);font-size:14px}
 .dk-page .ff-message-success{border:1px solid var(--dk-line);border-radius:var(--dk-r-s);background:var(--dk-accent-soft);color:var(--dk-ink);padding:16px}
+
+/* ---------- 18. PsyBooker booking widget ([wppa_booking]) inside DK sections ---------- */
+.dk-page .wppa-booking{--wppa-accent:var(--dk-accent);--wppa-border:var(--dk-line);--wppa-radius:var(--dk-r-s);--wppa-text:var(--dk-ink);font-family:var(--dk-font-body)}
+.dk-page .wppa-day{background:var(--dk-surface);color:var(--dk-ink);border-color:var(--dk-line)}
+.dk-page .wppa-day.active,.dk-page .wppa-slot.selected{background:var(--dk-accent);border-color:var(--dk-accent);color:var(--dk-accent-ink)}
+.dk-page .wppa-slot{background:var(--dk-surface);color:var(--dk-ink)}
+.dk-page .wppa-days-fade.right{background:linear-gradient(270deg,var(--dk-paper),transparent)}
+.dk-page .wppa-days-fade.left{background:linear-gradient(90deg,var(--dk-paper),transparent)}
+.dk-page .wppa-booking :is(select,input[type=text],input[type=email],input[type=tel]){box-sizing:border-box;min-height:52px;border:1px solid var(--dk-line)!important;border-radius:var(--dk-r-s)!important;background-color:var(--dk-surface)!important;color:var(--dk-ink)!important;font:400 16px/1.4 var(--dk-font-body)}
+.dk-page .wppa-booking input[type=checkbox]{accent-color:var(--dk-accent)}
+/* Bootstrap col-md-* switch by viewport width, not by our 520px column: name + email side by side, button on its own row */
+.dk-page .wppa-form.row>.col-md-5{width:50%}
+.dk-page .wppa-form.row>.col-md-2{width:100%}
+@media (max-width:560px){.dk-page .wppa-form.row>.col-md-5{width:100%}}
+.dk-page .wppa-form .wppa-submit{width:100%;height:auto;min-height:52px;border:0;border-radius:999px;background:var(--dk-accent);color:var(--dk-accent-ink);font:500 16px/1 var(--dk-font-body);transition:background-color .2s}
+.dk-page .wppa-form .wppa-submit:hover{background:var(--dk-accent-hover);color:var(--dk-accent-ink)}
