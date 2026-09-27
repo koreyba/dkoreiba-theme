@@ -12,7 +12,9 @@ if ( ! defined( 'WP_DEBUG' ) ) {
 	die( 'Direct access forbidden.' );
 }
 
-define( 'DK_DS_FONTS', 'https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,300..600&family=Onest:wght@400;500;600&display=swap' );
+// Only the faces the CSS uses: Literata 400/500 + italic 400 at a fixed optical size
+// (static files, ~4x lighter than the variable opsz/wght font), Onest 400/500/600.
+define( 'DK_DS_FONTS', 'https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,36,400;0,36,500;1,36,400&family=Onest:wght@400;500;600&display=swap' );
 
 /** Version an asset by its modification time so caches refresh after each deploy. */
 function dk_ds_ver( $rel ) {
