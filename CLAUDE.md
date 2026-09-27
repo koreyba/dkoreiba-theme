@@ -3,7 +3,7 @@
 WordPress site of a psychologist (dkoreiba.com). Parent theme Blocksy; everything
 design-related lives in `blocksy-child/` in this repo. Pages are built from core
 WordPress blocks + DK block styles/patterns. Goal: no plugins that do design work
-we can do in the theme (GreenShift and WPCode design snippets are being removed).
+we can do in the theme (GreenShift and WPCode design snippets are deactivated).
 
 ## Environments — read before touching anything
 | | URL | How it changes |
@@ -49,7 +49,7 @@ blocksy-child/
 
 Rules for new work:
 - Every DK section is a full-width group with class `dk-page` (patterns already are).
-  All DK CSS is scoped to `.dk-page`, so legacy GreenShift pages are unaffected.
+  All DK CSS is scoped to `.dk-page`, so blog posts and other non-DK content are unaffected.
 - Layout = primitives from `layout.css`. Don't add a page-specific grid class.
 - Look of a core block = a registered block style (`is-style-dk-*`, see
   `functions.php`), not a free-form class. Component-internal parts (dk-stat-num,
@@ -101,10 +101,13 @@ Rules for new work:
   white in dark mode (not styled yet).
 - Footer widgets are core blocks from `content/footer.json` (widgets block-25..28);
   the old GreenShift widgets are in "Inactive widgets" (block-10/15/20/22/24).
-- All published *pages* are GreenShift-free. GreenShift is still used by 8 blog
-  posts (280 blocks), incl. the service posts linked from the home pricing cards:
-  /psychotherapy-and-coaching (post 888), /сrisis-consultation (post 886).
-  Drafts 970/1250/1251/1302/1411 are out of scope (owner's decision).
+- **GreenShift is gone from all published content** and the plugin is *deactivated*
+  on staging (not deleted). The 8 posts that used it (871, 886, 888, 1118, 1210,
+  1225, 1230, 1290) were converted in the block editor (GS text/heading/image/button →
+  core paragraph/list/heading/image/buttons; word counts verified); previous content
+  is in each post's revisions. Blog sidebar widget block-1 → block-29 (.dk-sidebar-cta).
+  Drafts 970/1250/1251/1302/1411 still contain GreenShift — out of scope (owner's
+  decision). Blog posts use Blocksy's default typography, not DK yet.
 - Editor palette = Blocksy palette-color-1..8 + DK tokens (dk-*), via the
   `wp_theme_json_data_theme` filter in functions.php. Don't add a child theme.json
   palette: it makes WordPress drop Blocksy's editor-color-palette support.
