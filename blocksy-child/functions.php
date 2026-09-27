@@ -2,7 +2,7 @@
 /**
  * Blocksy Child — DK Design System loader.
  *
- * CSS:      assets/css/{tokens,base,layout,components,vendors}.css — front end and block editor.
+ * CSS:      assets/css/{tokens,base,layout,components,templates,vendors}.css — front end and editor.
  * Styles:   core block styles (is-style-dk-*) — registered below, styled in CSS.
  * Patterns: patterns/*.php — auto-registered by WordPress, category "dk".
  * JS:       assets/js/theme-init.js (inline in <head>), assets/js/dk.js (footer).
@@ -25,7 +25,7 @@ function dk_ds_register_styles() {
 	$dir = get_stylesheet_directory_uri();
 	wp_register_style( 'dk-fonts', DK_DS_FONTS, array(), null );
 	$deps = array( 'dk-fonts' );
-	foreach ( array( 'tokens', 'base', 'layout', 'components', 'vendors' ) as $name ) {
+	foreach ( array( 'tokens', 'base', 'layout', 'components', 'templates', 'vendors' ) as $name ) {
 		$rel = "assets/css/{$name}.css";
 		wp_register_style( "dk-{$name}", "{$dir}/{$rel}", $deps, dk_ds_ver( $rel ) );
 		$deps = array( "dk-{$name}" );
@@ -122,14 +122,9 @@ add_action( 'init', function () {
 
 /**
  * [dk_theme_toggle] — light/dark switch, placed in the Blocksy header via its "Text"
- * element (Customizer → Header). Rendered only on pages built with DK sections,
- * because dark tokens apply only there. Click handling: assets/js/dk.js.
+ * element (Customizer → Header). Dark tokens apply site-wide. Click: assets/js/dk.js.
  */
 add_shortcode( 'dk_theme_toggle', function () {
-	$post = get_queried_object();
-	if ( ! ( $post instanceof WP_Post ) || false === strpos( $post->post_content, 'dk-page' ) ) {
-		return '';
-	}
 	return '<button type="button" class="dk-theme-btn" aria-label="Сменить тему">'
 		. '<svg class="dk-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
 		. '<svg class="dk-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>'

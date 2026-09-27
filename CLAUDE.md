@@ -37,10 +37,11 @@ Lint PHP before pushing — a syntax error takes the whole staging site down:
 ```
 blocksy-child/
   functions.php          enqueue CSS chain + JS, register block styles & pattern category
-  assets/css/tokens.css  colours/fonts/spacing (--dk-*), light + dark (dark only on .dk-page)
+  assets/css/tokens.css  colours/fonts/spacing (--dk-*), light + dark site-wide; maps Blocksy vars
   assets/css/base.css    .dk-page scope, typography, text styles, buttons
   assets/css/layout.css  primitives: dk-wrap, dk-section, dk-stack*, dk-split*, dk-grid*
   assets/css/components.css  hero, tabs, band, stats, timeline, cards, price…
+  assets/css/templates.css   Blocksy templates: post, blog archive, default page, search, 404
   assets/css/vendors.css Blocksy header/footer, TranslatePress, Fluent Forms
   assets/js/theme-init.js    inline in <head>: data-dk-theme + window.dkToggleTheme
   assets/js/dk.js            tabs (.dk-tabs > .dk-tabpanel), header theme button + CTA

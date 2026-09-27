@@ -1,4 +1,4 @@
-/* DK Design System — tokens (light site-wide, dark on .dk-page) */
+/* DK Design System — tokens (light + dark, site-wide) */
 
 /* ---------- 1. Tokens (light, site-wide) ---------- */
 html:root{
@@ -23,11 +23,18 @@ html:root{
   --theme-palette-color-7:var(--dk-paper);
   --theme-palette-color-8:var(--dk-surface);
   --theme-font-family:var(--dk-font-body);
+  /* Blocksy colours set as hex in the Customizer → tokens, so they follow dark mode */
+  --theme-link-initial-color:var(--dk-accent);
+  --theme-link-hover-color:var(--dk-accent-hover);
+  --theme-selection-background-color:var(--dk-accent);
+  --theme-selection-text-color:var(--dk-accent-ink);
+  --theme-button-text-initial-color:var(--dk-accent-ink);
+  --theme-button-text-hover-color:var(--dk-accent-ink);
 }
 
-/* ---------- 2. Dark tokens (only on redesigned pages) ---------- */
+/* ---------- 2. Dark tokens: OS preference unless the visitor chose, or data-dk-theme=dark ---------- */
 @media (prefers-color-scheme:dark){
-  html:root:not([data-dk-theme="light"]):has(.dk-page){
+  html:root:not([data-dk-theme="light"]){
     color-scheme:dark;
     --dk-paper:#0E1618; --dk-surface:#162124; --dk-surface-2:#1C2B2F;
     --dk-ink:#E3EBE9; --dk-ink-2:#9FB1B3; --dk-line:#29393D;
@@ -36,7 +43,7 @@ html:root{
     --dk-shadow:0 1px 2px rgba(0,0,0,.3),0 16px 40px -16px rgba(0,0,0,.6);
   }
 }
-html:root[data-dk-theme="dark"]:has(.dk-page){
+html:root[data-dk-theme="dark"]{
   color-scheme:dark;
   --dk-paper:#0E1618; --dk-surface:#162124; --dk-surface-2:#1C2B2F;
   --dk-ink:#E3EBE9; --dk-ink-2:#9FB1B3; --dk-line:#29393D;

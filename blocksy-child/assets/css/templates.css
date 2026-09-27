@@ -1,0 +1,66 @@
+/* DK Design System — Blocksy templates (content not built from DK sections).
+ *
+ * Covers: single post, blog archive (/articles/) + related posts, default page title,
+ * search, 404, sidebar. Colours come from tokens (Blocksy palette → --dk-*), so
+ * everything here follows light/dark automatically.
+ */
+
+/* ---------- Page / post title (Blocksy hero) ---------- */
+.hero-section .page-title{font:400 clamp(34px,4.6vw,56px)/1.08 var(--dk-font-display);letter-spacing:-.025em;color:var(--dk-ink);text-wrap:balance}
+.hero-section .page-description,.hero-section .entry-meta{color:var(--dk-ink-2);font-family:var(--dk-font-body)}
+.hero-section .entry-meta a{color:var(--dk-ink-2)}
+
+/* ---------- Article body (single post, default pages without DK sections) ---------- */
+:is(.single-post,.page:not(:has(.dk-page)),.error404,.search) .entry-content{font:400 18px/1.75 var(--dk-font-body);color:var(--dk-ink)}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content :is(h2,h3,h4){font-family:var(--dk-font-display);font-weight:500;letter-spacing:-.015em;line-height:1.2;color:var(--dk-ink);text-wrap:balance}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content h2{font-size:clamp(28px,3vw,38px);margin-top:1.8em}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content h3{font-size:clamp(22px,2.2vw,28px);margin-top:1.6em}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content h4{font-size:20px;margin-top:1.4em}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content a:not(.wp-element-button){color:var(--dk-accent);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content a:not(.wp-element-button):hover{color:var(--dk-accent-hover)}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content :is(ul,ol) li::marker{color:var(--dk-accent)}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content :is(ul,ol) li{margin-bottom:.35em}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content strong{color:var(--dk-ink);font-weight:600}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content em{color:var(--dk-ink-2)}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content figure img{border-radius:var(--dk-r-m)}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content blockquote{margin:1.6em 0;padding:4px 0 4px 24px;border-left:3px solid var(--dk-accent);font:italic 400 22px/1.5 var(--dk-font-display);color:var(--dk-ink)}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content hr{border:0;border-top:1px solid var(--dk-line)}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content .wp-block-button__link{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;background:var(--dk-accent);color:var(--dk-accent-ink);font:500 16px/1 var(--dk-font-body);text-decoration:none;transition:background-color .2s}
+:is(.single-post,.page:not(:has(.dk-page))) .entry-content .wp-block-button__link:hover{background:var(--dk-accent-hover);color:var(--dk-accent-ink)}
+
+/* ---------- After the post: share, tags, prev/next, related ---------- */
+.ct-module-title{font:600 12px/1.2 var(--dk-font-body)!important;letter-spacing:.14em;text-transform:uppercase;color:var(--dk-ink-2)!important}
+.ct-share-box .ct-icon-container{border:1px solid var(--dk-line);background:transparent!important;color:var(--dk-ink-2)}
+.ct-share-box a:hover .ct-icon-container{border-color:var(--dk-accent);color:var(--dk-accent)}
+.entry-tags a{border:1px solid var(--dk-line);border-radius:999px;background:transparent;color:var(--dk-ink-2)}
+.entry-tags a:hover{border-color:var(--dk-accent);color:var(--dk-accent)}
+.post-navigation{border-block:1px solid var(--dk-line)}
+.post-navigation .item-label{color:var(--dk-ink-2);font:600 12px/1.2 var(--dk-font-body);letter-spacing:.14em;text-transform:uppercase}
+.post-navigation .item-title{font:400 19px/1.35 var(--dk-font-display);color:var(--dk-ink)}
+.post-navigation a:hover .item-title{color:var(--dk-accent)}
+.ct-related-posts .related-entry-title{font:400 19px/1.35 var(--dk-font-display)}
+.ct-related-posts .related-entry-title a{color:var(--dk-ink)}
+.ct-related-posts .related-entry-title a:hover{color:var(--dk-accent)}
+.ct-related-posts .entry-meta,.entry-card .entry-meta{color:var(--dk-ink-2);font-size:14px}
+
+/* ---------- Blog archive cards (.entries[data-cards=boxed]) ---------- */
+.entries[data-cards="boxed"] .entry-card{background:var(--dk-surface);border:1px solid var(--dk-line);border-radius:var(--dk-r-l);box-shadow:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+.entries[data-cards="boxed"] .entry-card:hover{border-color:color-mix(in srgb,var(--dk-accent) 45%,var(--dk-line));box-shadow:var(--dk-shadow);transform:translateY(-2px)}
+.entry-card .entry-title{font:400 clamp(21px,1.8vw,24px)/1.25 var(--dk-font-display);letter-spacing:-.01em}
+.entry-card .entry-title a{color:var(--dk-ink)}
+.entry-card .entry-title a:hover{color:var(--dk-accent)}
+.entry-card .entry-excerpt{color:var(--dk-ink-2);font-size:16px;line-height:1.6}
+.entry-card .ct-media-container{border-radius:var(--dk-r-m)}
+
+/* ---------- Pagination ---------- */
+.ct-pagination .page-numbers{border-radius:999px;color:var(--dk-ink-2);font-family:var(--dk-font-body)}
+.ct-pagination .page-numbers.current{background:var(--dk-accent);color:var(--dk-accent-ink)}
+.ct-pagination a.page-numbers:hover{color:var(--dk-accent)}
+
+/* ---------- Search form, 404, no results ---------- */
+.ct-no-results .entry-content{max-width:640px}
+:is(.search-form,.ct-search-form) input[type="search"]{min-height:52px;border:1px solid var(--dk-line)!important;border-radius:999px!important;background:var(--dk-surface)!important;color:var(--dk-ink)!important;padding-inline:20px!important}
+:is(.search-form,.ct-search-form) button{border-radius:999px!important;background:var(--dk-accent)!important;color:var(--dk-accent-ink)!important}
+
+/* ---------- Back to top (Customizer colours are hex) ---------- */
+.ct-back-to-top{--top-button-background-color:var(--dk-surface)!important;--top-button-background-hover-color:var(--dk-surface-2)!important;--theme-icon-color:var(--dk-ink)!important;--theme-icon-hover-color:var(--dk-accent)!important;border:1px solid var(--dk-line);border-radius:999px!important}
