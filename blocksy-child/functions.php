@@ -340,3 +340,49 @@ add_action( 'rest_api_init', function () {
 		),
 	) );
 } );
+
+/* TranslatePress leaves SiteSEO's <title> and SEO/social meta untranslated (on prod too).
+   On the uk version, buffer wp_head and swap those strings from the same dictionary. */
+function dk_trp_is_uk() {
+	global $TRP_LANGUAGE;
+	return ! is_admin() && isset( $TRP_LANGUAGE ) && 'uk' === $TRP_LANGUAGE;
+}
+add_action( 'wp_head', function () {
+	if ( dk_trp_is_uk() ) {
+		ob_start();
+	}
+}, 0 );
+add_action( 'wp_head', function () {
+	if ( ! dk_trp_is_uk() ) {
+		return;
+	}
+	global $wpdb;
+	$head = ob_get_clean();
+	$re   = '~(<title>)([^<]+)(</title>)|(<meta\s[^>]*?(?:name|property)=["\'](?:description|og:title|og:description|og:site_name|twitter:title|twitter:description)["\'][^>]*?content=["\'])([^"\']*)(["\'])~i';
+	if ( ! preg_match_all( $re, $head, $m, PREG_SET_ORDER ) ) {
+		echo $head; // phpcs:ignore WordPress.Security.EscapeOutput
+		return;
+	}
+	$strings = array();
+	foreach ( $m as $x ) {
+		$s = trim( '' !== $x[2] ? $x[2] : $x[5] );
+		$strings[ $s ] = true;
+		$strings[ html_entity_decode( $s, ENT_QUOTES, 'UTF-8' ) ] = true;
+	}
+	$table = dk_trp_table();
+	$in    = implode( ',', array_fill( 0, count( $strings ), '%s' ) );
+	$rows  = $wpdb->get_results( $wpdb->prepare( "SELECT original, translated FROM `{$table}` WHERE translated <> '' AND original IN ($in)", array_keys( $strings ) ), ARRAY_A ); // phpcs:ignore WordPress.DB
+	$map   = array();
+	foreach ( $rows as $r ) {
+		$map[ $r['original'] ] = $r['translated'];
+	}
+	echo preg_replace_callback( $re, function ( $x ) use ( $map ) { // phpcs:ignore WordPress.Security.EscapeOutput
+		$title = '' !== $x[2];
+		$s     = trim( $title ? $x[2] : $x[5] );
+		$t     = isset( $map[ $s ] ) ? $map[ $s ] : ( isset( $map[ html_entity_decode( $s, ENT_QUOTES, 'UTF-8' ) ] ) ? $map[ html_entity_decode( $s, ENT_QUOTES, 'UTF-8' ) ] : null );
+		if ( null === $t ) {
+			return $x[0];
+		}
+		return $title ? $x[1] . esc_html( $t ) . $x[3] : $x[4] . esc_attr( $t ) . $x[6];
+	}, $head );
+}, PHP_INT_MAX );
