@@ -66,7 +66,7 @@
 /* accordion rows (phones only; dk.js inserts one before each panel) */
 .dk-acc-trigger{display:none}
 @media (max-width:860px){
-  .dk-tabs.is-ready{display:flex;flex-direction:column;gap:10px}
+  .dk-tabs.is-ready{display:flex;flex-direction:column;align-items:stretch;gap:10px}
   .dk-tabs.is-ready .dk-tablist{display:none}
   .dk-acc-trigger{display:flex;align-items:center;gap:14px;width:100%;min-height:60px;padding:14px 16px 14px 18px;box-sizing:border-box;border:1px solid var(--dk-line);border-radius:var(--dk-r-m);background:var(--dk-surface);color:var(--dk-ink);font:500 17px/1.3 var(--dk-font-body);text-align:left;cursor:pointer;transition:border-color .2s,background-color .2s}
   .dk-acc-trigger>svg{flex:none;width:22px;height:22px;color:var(--dk-ink-2)}
