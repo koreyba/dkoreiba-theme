@@ -20,7 +20,8 @@
 .dk-hero .dk-split>:first-child>*:nth-child(5){animation-delay:.3s}
 .dk-hero .dk-split>:first-child>*:nth-child(6){animation-delay:.36s}
 .dk-hero-media{animation-delay:.18s}
-@keyframes dk-rise-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+/* transform only: an opacity fade would delay LCP (the hero lead text) until it ends */
+@keyframes dk-rise-in{from{transform:translateY(14px)}to{transform:none}}
 @media (max-width:860px){
   .dk-hero-media{order:-1;max-width:380px;width:100%;margin-inline:auto!important}
 }
