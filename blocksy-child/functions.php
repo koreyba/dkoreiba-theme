@@ -240,7 +240,7 @@ add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $attachment 
 /**
  * YouTube facade: core/embed YouTube blocks render a thumbnail + play button instead of
  * the iframe (~1.4 MB of player JS/CSS on page load). dk.js swaps in a
- * youtube-nocookie iframe with autoplay on click.
+ * youtube-nocookie iframe on click (no autoplay — the visitor presses play in the player).
  */
 add_filter( 'render_block_core/embed', function ( $html, $block ) {
 	if ( ( $block['attrs']['providerNameSlug'] ?? '' ) !== 'youtube' ) {

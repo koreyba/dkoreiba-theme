@@ -81,7 +81,7 @@ Rules for new work:
   (blocksy-child/assets/css, blocksy/static, uploads/blocksy/css) is in its
   "Exclude Styles" list so it stays render-blocking → no flash of unstyled content.
 - Lighthouse, home, mobile (local, cached page): 97–98, LCP ≈ 2.0 s, 509 KB transfer.
-  What mattered: YouTube facade (render_block core/embed → .dk-yt, iframe on click;
+  What mattered: YouTube facade (render_block core/embed → .dk-yt, iframe on click, no autoplay;
   was ~1.4 MB), LCP portrait eager + fetchpriority=high + real `sizes` (dk-circle),
   no opacity in the hero rise-in animation (it delayed LCP), logo `sizes`.
   Measure with `npx lighthouse@12 <url> --only-categories=performance --form-factor=mobile`

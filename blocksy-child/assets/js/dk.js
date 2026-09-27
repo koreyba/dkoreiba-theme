@@ -55,11 +55,11 @@
     root.insertBefore(list,root.firstChild);root.classList.add('is-ready');render();
   }
 
-  // YouTube facade (functions.php): load the player only when asked for.
+  // YouTube facade (functions.php): load the player only when asked for (no autoplay).
   document.addEventListener('click',function(e){
     var b=e.target.closest&&e.target.closest('.dk-yt');if(!b)return;
     var f=document.createElement('iframe');
-    f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.getAttribute('data-yt'))+'?autoplay=1&rel=0&playsinline=1';
+    f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.getAttribute('data-yt'))+'?rel=0&playsinline=1';
     f.title='YouTube video';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     f.setAttribute('allowfullscreen','');f.className='dk-yt-frame';
     b.replaceWith(f);f.focus();
