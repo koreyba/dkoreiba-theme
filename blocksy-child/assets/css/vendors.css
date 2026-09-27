@@ -1,4 +1,4 @@
-/* DK Design System — overrides for Blocksy header/footer, TranslatePress, GreenShift widgets */
+/* DK Design System — overrides for Blocksy header/footer, TranslatePress, GreenShift widgets, Fluent Forms */
 
 /* ---------- 13. Header (Blocksy) ---------- */
 #header [data-row]{background:color-mix(in srgb,var(--dk-paper) 84%,transparent)!important;-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--dk-line)!important;box-shadow:none!important}
@@ -59,3 +59,17 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 #header [data-device="mobile"] .trp-shortcode-switcher__wrapper{--flag-size:16px!important}
 #header [data-device="mobile"] .trp-language-switcher .trp-language-item{padding:8px 10px!important;gap:6px!important}
 #header [data-device="mobile"] .trp-language-switcher .trp-current-language-item__wrapper{padding-right:8px!important;gap:4px!important}
+
+/* ---------- 17. Fluent Forms inside DK sections ---------- */
+.dk-page .fluentform{--ff-gap:18px}
+.dk-page .fluentform .ff-el-group{margin-bottom:18px}
+.dk-page .fluentform .ff-el-input--label label{font:600 12px/1.2 var(--dk-font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--dk-ink-2)}
+.dk-page .fluentform .ff-el-input--label.ff-el-is-required.asterisk-right label::after{color:var(--dk-accent)}
+.dk-page .fluentform .ff-el-form-control{box-sizing:border-box;width:100%;min-height:52px;padding:14px 16px;border:1px solid var(--dk-line);border-radius:var(--dk-r-s);background:var(--dk-paper);color:var(--dk-ink);font:400 16px/1.4 var(--dk-font-body);box-shadow:none;transition:border-color .2s,background-color .2s}
+.dk-page .fluentform textarea.ff-el-form-control{min-height:140px;resize:vertical}
+.dk-page .fluentform .ff-el-form-control::placeholder{color:var(--dk-ink-2);opacity:.7}
+.dk-page .fluentform .ff-el-form-control:focus{outline:none;border-color:var(--dk-accent);background:var(--dk-surface)}
+.dk-page .fluentform .ff-btn-submit{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border:0;border-radius:999px;background:var(--dk-accent)!important;color:var(--dk-accent-ink)!important;font:500 16px/1 var(--dk-font-body);cursor:pointer;transition:background-color .2s,transform .2s}
+.dk-page .fluentform .ff-btn-submit:hover{background:var(--dk-accent-hover)!important;transform:translateY(-1px)}
+.dk-page .fluentform .error,.dk-page .fluentform .text-danger{color:var(--dk-accent);font-size:14px}
+.dk-page .ff-message-success{border:1px solid var(--dk-line);border-radius:var(--dk-r-s);background:var(--dk-accent-soft);color:var(--dk-ink);padding:16px}

@@ -12,3 +12,4 @@ Push to staging from a logged-in wp-admin tab (repo is public):
 | File | Page |
 |---|---|
 | about.html | about (id 12) |
+| contact.html | contact (id 16) |

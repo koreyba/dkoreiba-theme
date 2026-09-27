@@ -82,6 +82,7 @@ add_action( 'init', function () {
 			'dk-dots'     => 'DK: список с точками',
 			'dk-values'   => 'DK: крупные строки',
 			'dk-timeline' => 'DK: хронология',
+			'dk-links'    => 'DK: ссылки-строки',
 		),
 		'core/button'    => array(
 			'dk-arrow' => 'DK: со стрелкой',
