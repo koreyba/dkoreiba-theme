@@ -150,3 +150,6 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 #header [data-device="mobile"] .trp-shortcode-switcher__wrapper .trp-shortcode-overlay{top:0!important}
 #header [data-device="mobile"] .trp-current-language-item__wrapper{height:42px!important;padding:0 10px 0 4px!important}
 #header [data-device="mobile"] .trp-current-language-item__wrapper .trp-language-item-name{display:none!important}
+/* the overlay layer is as wide as its hidden dropdown list; keep it to the pill when closed */
+#header [data-device="mobile"] .trp-shortcode-overlay:not(.is-open){width:100%!important;min-width:0!important}
+#header [data-device="mobile"] .trp-shortcode-overlay.is-open{width:auto!important;min-width:100%!important;box-shadow:var(--dk-shadow)}
