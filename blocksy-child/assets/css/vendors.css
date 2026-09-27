@@ -45,9 +45,9 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 #footer .dk-footer-quote{margin:0;padding:0 clamp(0px,3vw,50px);border:0;text-align:center}
 #footer .dk-footer-quote p{margin:0;font:italic 400 22px/1.45 var(--dk-font-display);color:var(--dk-ink)}
 #footer .dk-footer-quote cite{display:block;margin-top:12px;font:normal 400 15px/1.4 var(--dk-font-body);color:var(--dk-ink-2)}
-#footer .dk-footer-mark{display:flex;justify-content:center;margin-top:16px}
-#footer .dk-footer-mark svg{width:155px;height:auto;fill:var(--dk-line)}
-#footer .dk-footer-mark svg *{fill:inherit}
+/* ornament: SVG file used as a mask, so it is cached and takes the --dk-line colour */
+#footer .dk-footer-mark{width:155px;height:54px;margin:16px auto 0;background:var(--dk-line);-webkit-mask:url(../img/footer-mark.svg) center/contain no-repeat;mask:url(../img/footer-mark.svg) center/contain no-repeat}
+#footer .dk-footer-mark svg{display:none}
 #footer .ct-socials-block{--theme-icon-color:var(--dk-ink-2)!important;--theme-icon-hover-color:var(--dk-accent)!important;--background-color:transparent!important;--background-hover-color:var(--dk-accent-soft)!important}
 #footer .ct-social-box a .ct-icon-container{border:1px solid var(--dk-line)}
 #footer,#footer .ct-footer-copyright{color:var(--dk-ink-2)!important;font-family:var(--dk-font-body)}

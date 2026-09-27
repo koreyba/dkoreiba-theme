@@ -207,3 +207,32 @@ add_shortcode( 'dk_lang_switch', function () {
 	}
 	return $out . '</nav>';
 } );
+
+/**
+ * LCP / above-the-fold images.
+ * - DK circle portraits (hero and page intros) are the LCP element: load eagerly with
+ *   high priority, keep them out of W3TC lazyload (data-no-lazy), and give real sizes
+ *   (they are shown at <=380px on phones, ~475px on desktop).
+ * - The header logo is shown at 50/123px but was sized as a 512px image.
+ */
+add_filter( 'render_block_core/image', function ( $html, $block ) {
+	$class = $block['attrs']['className'] ?? '';
+	if ( false === strpos( $class, 'is-style-dk-circle' ) ) {
+		return $html;
+	}
+	return preg_replace(
+		'/<img(?![^>]*fetchpriority)/',
+		'<img fetchpriority="high" loading="eager" decoding="async" data-no-lazy="1" sizes="(max-width: 860px) min(380px, calc(100vw - 32px)), 475px"',
+		$html,
+		1
+	);
+}, 10, 2 );
+
+add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $attachment ) {
+	if ( (int) get_theme_mod( 'custom_logo' ) === (int) $attachment->ID ) {
+		$attr['sizes']        = '(max-width: 999px) 50px, 123px';
+		$attr['loading']      = 'eager';
+		$attr['data-no-lazy'] = '1';
+	}
+	return $attr;
+}, 10, 2 );
