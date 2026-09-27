@@ -78,14 +78,18 @@ Rules for new work:
 ## Performance plugins (staging)
 - Two optimisers are active: W3 Total Cache (page cache, JS/CSS minify, lazyload) and
   Debloat (CSS optimise/minify, remove unused block-library CSS, Google Fonts inline).
-- Debloat "Inline Optimized CSS" is **off** (changed 2026-09-27): it inlined ~340 KB
-  of CSS into every page (HTML 396 KB → 147 KB on home). Keep CSS as cacheable files.
-- Remaining HTML weight: global-styles (~25 KB, WP/Blocksy presets), footer SVG
-  ornament (~20 KB, widget block-27), GDPR cookie plugin inline CSS (~14 KB).
-- Debloat "Fix Render-Blocking CSS" loads CSS async (media=print → all). Theme CSS
-  (blocksy-child/assets/css, blocksy/static, uploads/blocksy/css) is in its
-  "Exclude Styles" list so it stays render-blocking → no flash of unstyled content.
-- Lighthouse, home, mobile (local, cached page): 97–98, LCP ≈ 2.0 s, 509 KB transfer.
+- Debloat CSS config (2026-09-27): Fix Render-Blocking CSS on, **Inline Optimized CSS on**,
+  **Remove Unused CSS for theme + plugins on**, Remove-unused excludes:
+  `themes/blocksy-child`, `plugins/gdpr-cookie-compliance`, `plugins/fluentform`,
+  `plugins/psybooker`, `plugins/translatepress-multilingual`. Result: 0 external CSS,
+  home HTML ≈ 227 KB (≈ 43 KB gzip), Blocksy main CSS 92 → 52 KB.
+  "Always Keep Selectors" does NOT protect JS-added classes (tested: .dk-tab, .dk-acc-*,
+  moove states were still removed) — exclude whole stylesheets instead. Any CSS whose
+  classes appear only after JS runs must live in blocksy-child or an excluded plugin.
+  Rollback: inline off, remove-unused theme/plugins off, Exclude Styles =
+  themes/blocksy-child/assets/css, themes/blocksy/static, uploads/blocksy/css.
+- GDPR Cookie Compliance and Site Kit are deactivated on staging by the owner (for now).
+- Lighthouse, home, mobile (local, cached page, 3 runs): 94/99/99, FCP 1.2 s, LCP 2.0 s.
   What mattered: YouTube facade (render_block core/embed → .dk-yt, iframe on click, no autoplay;
   was ~1.4 MB), LCP portrait eager + fetchpriority=high + real `sizes` (dk-circle),
   no opacity in the hero rise-in animation (it delayed LCP), logo `sizes`.
