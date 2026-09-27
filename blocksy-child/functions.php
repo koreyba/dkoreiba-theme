@@ -185,3 +185,25 @@ add_filter( 'wp_theme_json_data_theme', function ( $theme_json ) {
 		'settings' => array( 'color' => array( 'palette' => $palette ) ),
 	) );
 } );
+
+/**
+ * [dk_lang_switch] — flags-only language switcher built on TranslatePress data
+ * (trp_custom_language_switcher()). Current language = highlighted flag, others = links
+ * to the same page in that language. Placed in the Blocksy header "Text" element.
+ */
+add_shortcode( 'dk_lang_switch', function () {
+	if ( ! function_exists( 'trp_custom_language_switcher' ) ) {
+		return '';
+	}
+	global $TRP_LANGUAGE;
+	$out = '<nav class="dk-lang" aria-label="Язык сайта" data-no-translation>';
+	foreach ( trp_custom_language_switcher() as $code => $lang ) {
+		$img = sprintf( '<img src="%s" alt="%s" width="20" height="15" loading="eager" decoding="async">', esc_url( $lang['flag_link'] ), esc_attr( $lang['language_name'] ) );
+		if ( $code === $TRP_LANGUAGE ) {
+			$out .= '<span class="dk-lang__item is-current" aria-current="true" title="' . esc_attr( $lang['language_name'] ) . '">' . $img . '</span>';
+		} else {
+			$out .= sprintf( '<a class="dk-lang__item" href="%s" hreflang="%s" title="%s" data-no-translation>%s</a>', esc_url( $lang['current_page_url'] ), esc_attr( $lang['short_language_name'] ), esc_attr( $lang['language_name'] ), $img );
+		}
+	}
+	return $out . '</nav>';
+} );

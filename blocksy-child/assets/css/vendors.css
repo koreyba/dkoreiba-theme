@@ -9,14 +9,11 @@
 #header .header-menu-1 .menu>li.menu-item-726>a{color:var(--dk-ink-2);font-weight:400}
 #header .header-menu-1 .menu>li:is(.menu-item-726):hover>a{color:var(--dk-ink)}
 #header .header-menu-1 .menu>li>a::before,#header .header-menu-1 .menu>li>a::after{display:none}
-#header .trp-menu-ls-item>a{border:1px solid var(--dk-line);margin-left:8px}
 #header .ct-header-socials{--theme-icon-color:var(--dk-ink-2)!important;--theme-icon-hover-color:var(--dk-accent)!important}
 #header .ct-header-socials .ct-social-box a{--background-color:transparent!important;--background-hover-color:var(--dk-surface-2)!important}
 #header .ct-header-trigger{--theme-icon-color:var(--dk-ink)!important;--theme-link-initial-color:var(--dk-ink)!important}
-#header .trp-shortcode-switcher__wrapper{--bg:var(--dk-paper)!important;--bg-hover:var(--dk-surface-2)!important;--text:var(--dk-ink)!important;--text-hover:var(--dk-ink)!important;--border:1px solid var(--dk-line)!important;--border-color:var(--dk-line)!important;--border-radius:999px!important;--font-size:14px!important}
 #header .ct-header-text .entry-content{display:flex;align-items:center;gap:8px}
 #header .ct-header-text .entry-content>p{display:contents}
-#header [data-device="desktop"] .ct-header-text .trp-shortcode-switcher__wrapper{display:none}
 .dk-theme-btn{width:44px;height:44px;display:grid;place-items:center;padding:0;border-radius:999px;border:1px solid var(--dk-line);background:transparent;color:var(--dk-ink);cursor:pointer;transition:border-color .2s}
 .dk-theme-btn:hover{border-color:var(--dk-ink)}
 .dk-theme-btn svg{width:20px;height:20px}
@@ -61,10 +58,6 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 #header [data-device="mobile"] [data-row]>.ct-container{grid-template-columns:auto 1fr auto!important;column-gap:8px}
 #header [data-device="mobile"] [data-column="middle"]{justify-self:end}
 #header [data-device="mobile"] .ct-header-text,#header [data-device="mobile"] [data-column="middle"] [data-items]>*{margin-inline:0!important;padding-inline:0!important}
-#header [data-device="mobile"] .trp-language-item-name{text-overflow:clip}
-#header [data-device="mobile"] .trp-shortcode-switcher__wrapper{--flag-size:16px!important}
-#header [data-device="mobile"] .trp-language-switcher .trp-language-item{padding:8px 10px!important;gap:6px!important}
-#header [data-device="mobile"] .trp-language-switcher .trp-current-language-item__wrapper{padding-right:8px!important;gap:4px!important}
 
 /* ---------- 17. Fluent Forms inside DK sections ---------- */
 .dk-page .fluentform{--ff-gap:18px}
@@ -142,14 +135,12 @@ html[data-dk-theme="dark"] .dk-theme-btn .dk-moon{display:block}
 #moove_gdpr_cookie_modal .moove-gdpr-modal-reject-all{background:transparent!important;border:1px solid var(--dk-line)!important;color:var(--dk-ink)!important}
 #moove_gdpr_cookie_modal .moove-gdpr-modal-close,#moove_gdpr_cookie_modal .moove-gdpr-modal-close span{color:var(--dk-ink)!important;background:transparent!important;border-color:var(--dk-line)!important}
 
-/* ---------- 21. Mobile header: TranslatePress switcher aligned with the other 44px controls ----------
-   The switcher is inline-block with 10px vertical padding, so it sat on the baseline, above
-   the theme button, and stuck out of the shrunk sticky header. Collapsed = flag + chevron. */
-#header [data-device="mobile"] .trp-shortcode-switcher__wrapper{display:flex;align-items:center;align-self:center;height:44px;margin:0!important}
-#header [data-device="mobile"] .trp-shortcode-switcher__wrapper .trp-language-switcher{padding:0!important;height:auto!important;vertical-align:middle}
-#header [data-device="mobile"] .trp-shortcode-switcher__wrapper .trp-shortcode-overlay{top:0!important}
-#header [data-device="mobile"] .trp-current-language-item__wrapper{height:42px!important;padding:0 10px 0 4px!important}
-#header [data-device="mobile"] .trp-current-language-item__wrapper .trp-language-item-name{display:none!important}
-/* the overlay layer is as wide as its hidden dropdown list; keep it to the pill when closed */
-#header [data-device="mobile"] .trp-shortcode-overlay:not(.is-open){width:100%!important;min-width:0!important}
-#header [data-device="mobile"] .trp-shortcode-overlay.is-open{width:auto!important;min-width:100%!important;box-shadow:var(--dk-shadow)}
+/* ---------- 21. Language switcher [dk_lang_switch] (flags only) ---------- */
+.dk-lang{display:inline-flex;align-items:center;gap:2px;height:44px;padding:0 5px;box-sizing:border-box;border:1px solid var(--dk-line);border-radius:999px}
+.dk-lang__item{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;transition:background-color .2s,opacity .2s}
+.dk-lang__item img{display:block;width:20px;height:15px;object-fit:cover;border-radius:3px}
+.dk-lang__item.is-current{background:var(--dk-surface-2)}
+a.dk-lang__item{opacity:.55}
+a.dk-lang__item:hover,a.dk-lang__item:focus-visible{opacity:1;background:var(--dk-surface-2)}
+/* TranslatePress menu item replaced by [dk_lang_switch] */
+:is(#header,#offcanvas) .menu .trp-menu-ls-item{display:none!important}

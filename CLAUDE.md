@@ -109,7 +109,7 @@ Rules for new work:
 - Contact (id 16) rebuilt on DK from `content/contact.html` (Fluent Forms form 3
   kept, styled in vendors.css); old version: revision 1244.
 - Header: theme button = `[dk_theme_toggle]` shortcode in the Blocksy "Text" element
-  (`[language-switcher][dk_theme_toggle]`), CTA = Blocksy "Button" element; dk.js no
+  (`[dk_lang_switch][dk_theme_toggle]`; `[dk_lang_switch]` = own flags-only switcher on `trp_custom_language_switcher()`, TranslatePress menu item hidden via CSS), CTA = Blocksy "Button" element; dk.js no
   longer injects markup. Customizer snapshot: `config/theme-mods.stage.json`.
 - Translations are knowingly out of date after migrations — to be redone later.
 - Calendar (id 1316) rebuilt from `content/calendar.html` (PsyBooker `[wppa_booking]`
